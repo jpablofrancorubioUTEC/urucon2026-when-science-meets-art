@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d1530">
+<title>When Science Meets Art · IEEE URUCON 2026</title>
+<meta name="description" content="When Science Meets Art: From Computational Fluid Dynamics Simulation to Creative Technology — póster vivo / living poster, IEEE URUCON 2026. Blas Melissari · Juan Pablo Franco Rubio.">
+<meta property="og:title" content="When Science Meets Art · IEEE URUCON 2026">
+<meta property="og:description" content="From Computational Fluid Dynamics Simulation to Creative Technology. A living poster.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0d1530;--navy:#1d2b57;--navy2:#24366b;--blue:#073fbc;--sky:#3c76f8;--cyan:#6ccefe;
+  --paper:#f6f6f6;--cream:#f3efe4;--cream2:#ebe5d4;--ink:#2b2b2b;--ink2:#4a4f5c;--hl:#f3e35a;--hl2:#fbf3a8;
+  --line:#c9c2ae;--soft:#aab6d6;
+  --serif:'Fraunces','Iowan Old Style',Baskerville,'Palatino Linotype',Georgia,serif;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:clamp(24px,8vw,150px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6}
+[data-lang="es"] .en,[data-lang="en"] .es{display:none!important}
+a{color:inherit}button{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--hl);color:var(--ink)}
+h1,h2,h3,p{margin-top:0}
+.serif{font-family:var(--serif)}
+.caps{text-transform:uppercase;letter-spacing:.24em;font-size:11px;font-weight:650}
+.chapter{display:flex;align-items:center;gap:16px}
+.chapter i{display:block;height:1px;width:40px;background:currentColor;opacity:.7}
+.mark{background:linear-gradient(transparent 52%,var(--hl) 52%,var(--hl) 90%,transparent 90%);padding:0 .08em;color:inherit}
+.dark .mark{background:linear-gradient(transparent 58%,#f3e35a66 58%,#f3e35a66 92%,transparent 92%)}
+.ref{font-family:var(--mono);font-size:.72em;text-decoration:none;opacity:.6;white-space:nowrap;vertical-align:.12em}
+.ref:hover{opacity:1;text-decoration:underline}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.show{opacity:1;transform:none}
+section{position:relative;padding:clamp(96px,11vw,170px) var(--pad)}
+.wrap{max-width:1240px;margin:0 auto}
+.h2{font-family:var(--serif);font-weight:350;font-size:clamp(42px,6.2vw,92px);line-height:1.04;letter-spacing:-.04em;margin:26px 0 28px}
+.h2 em{font-weight:300}
+.lead{font-size:clamp(17px,1.6vw,21px);line-height:1.75;max-width:640px}
+.btn{cursor:pointer;display:inline-flex;align-items:center;gap:10px;border:1px solid currentColor;background:transparent;padding:14px 20px;border-radius:2px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:transform .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--paper);color:var(--night);border-color:var(--paper)}
+.btn.solid:hover{background:#fff}
+.light .btn.solid{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.light{background:var(--cream);color:var(--ink)}
+.light .chapter{color:#8a7f66}
+.paper{background:var(--paper);color:var(--ink)}
+.dark{background:var(--navy);color:var(--paper)}
+.grain:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
+
+/* ---------- nav, progress, rail ---------- */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--sky),var(--cyan));z-index:30}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,4vw,56px);transition:background .35s,backdrop-filter .35s,padding .35s}
+.nav.scrolled{background:#0d1530cc;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.brand img{height:30px;width:auto}
+.brand span{opacity:.85}
+.nav-right{display:flex;align-items:center;gap:18px}
+.nav-link{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:650;text-decoration:none;opacity:.8}
+.nav-link:hover{opacity:1}
+.lang{display:flex;border:1px solid #ffffff55;border-radius:30px;overflow:hidden}
+.lang button{border:0;background:transparent;padding:7px 12px;font-size:11px;letter-spacing:.12em;font-weight:700;cursor:pointer;opacity:.7}
+.lang button[aria-pressed="true"]{background:var(--paper);color:var(--night);opacity:1}
+.rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:15;display:flex;flex-direction:column;gap:13px;mix-blend-mode:difference}
+.rail a{display:flex;align-items:center;justify-content:flex-end;gap:10px;text-decoration:none;color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.rail a b{width:7px;height:7px;border-radius:50%;border:1px solid #fff;display:block;transition:transform .3s,background .3s}
+.rail a span{opacity:0;transform:translateX(6px);transition:.3s;white-space:nowrap}
+.rail a:hover span,.rail a.on span{opacity:.9;transform:none}
+.rail a.on b{background:#fff;transform:scale(1.25)}
+@media(max-width:1100px){.rail{display:none}}
+@media(max-width:640px){.nav-link{display:none}.brand span{display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:120px;padding-bottom:110px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 75% 45%,#24366b 0%,#16224a 38%,#0d1530 78%)}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.95}
+.hero-inner{max-width:880px;position:relative}
+.eyebrow{display:flex;align-items:center;gap:16px;color:var(--cyan)}
+.eyebrow:before{content:"";width:46px;height:1px;background:var(--cyan)}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(64px,10.5vw,168px);line-height:.92;letter-spacing:-.055em;margin:30px 0 22px}
+.hero h1 em{font-weight:300;color:var(--cyan)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(19px,2.2vw,28px);color:#dfe6f7;max-width:640px;line-height:1.4;margin-bottom:34px}
+.authors{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:14px;color:#c9d3ec;margin-bottom:40px}
+.authors b{color:#fff;font-weight:600}
+.authors small{display:block;font-size:11px;letter-spacing:.06em;opacity:.75}
+.actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.scrollnote{position:absolute;left:var(--pad);bottom:34px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#aab6d6;display:flex;gap:14px;align-items:center;text-decoration:none}
+.scrollnote:after{content:"";height:1px;width:42px;background:currentColor}
+.hero-tag{position:absolute;right:var(--pad);bottom:34px;font-family:var(--mono);font-size:11px;color:#aab6d6;opacity:.8}
+@media(max-width:700px){.hero-tag{display:none}}
+
+/* ---------- 01 abstract ---------- */
+.abstract-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,100px);align-items:start}
+.moves{display:flex;flex-direction:column;gap:2px;margin-top:34px;border-left:1px solid var(--line)}
+.moves button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:14px 0 14px 18px;margin-left:-1px;border-left:2px solid transparent;color:#7d7461;transition:color .25s,border-color .25s}
+.moves button:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+.moves button b{font-family:var(--mono);font-weight:500;font-size:12px}
+.moves button span{font-family:var(--serif);font-size:clamp(20px,2vw,26px);letter-spacing:-.02em}
+.moves button[aria-selected="true"]{color:var(--ink);border-left-color:var(--blue)}
+.moves button:hover{color:var(--ink)}
+.move-panel{min-height:330px;position:relative}
+.move{display:none;animation:fadeUp .7s ease both}
+.move.on{display:block}
+.move .quote{font-family:var(--serif);font-weight:350;font-size:clamp(22px,2.35vw,31px);line-height:1.5;letter-spacing:-.015em;color:var(--ink)}
+.move .gloss{margin-top:26px;font-size:14px;color:#6c6555;max-width:560px;display:flex;gap:12px}
+.move .gloss:before{content:"✎";color:var(--blue)}
+.move-nav{display:flex;gap:10px;margin-top:34px;align-items:center}
+.move-nav button{cursor:pointer;border:1px solid var(--line);background:transparent;width:42px;height:42px;border-radius:50%}
+.move-nav button:hover{background:#fff}
+.move-count{font-family:var(--mono);font-size:12px;color:#8a7f66;margin-left:8px}
+.accepted{margin-top:46px;padding-top:22px;border-top:1px dashed var(--line);font-size:12px;color:#7d7461;letter-spacing:.04em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.abstract-grid{grid-template-columns:1fr}.move-panel{min-height:0}}
+
+/* ---------- 02 practice ---------- */
+.practice{background:#111a38}
+.practice-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,6vw,96px);align-items:center}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0}
+.tool{border:1px solid #ffffff33;border-radius:40px;padding:8px 15px;font-size:13px;color:#dbe3f6;background:#ffffff08}
+.tool code{font-family:var(--mono);color:var(--cyan);font-size:12px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gallery figure{margin:0;position:relative;overflow:hidden;border:1px solid #ffffff1f;box-shadow:0 30px 70px #0006}
+.gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform 1.2s ease}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figure:nth-child(2){margin-top:48px}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,#0d1530dd);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#dfe6f7}
+.credit{margin-top:18px;font-size:13px;color:#aab6d6}
+.credit a{color:var(--cyan)}
+@media(max-width:900px){.practice-grid{grid-template-columns:1fr}}
+
+/* ---------- 03 continuity ---------- */
+.cont{--t:0;background:#e7ebf3;background:color-mix(in srgb,#e7ebf3 calc((1 - var(--t))*100%),var(--cream) calc(var(--t)*100%));color:var(--ink);text-align:center;transition:background .2s}
+.cont .chapter{justify-content:center;color:#6f7790}
+.cont .h2{max-width:1000px;margin-left:auto;margin-right:auto}
+.cont .lead{margin:0 auto;color:#4c5366}
+.cont-stage{max-width:1100px;margin:56px auto 0;display:grid;grid-template-columns:1fr minmax(240px,320px) 1fr;gap:clamp(18px,3vw,40px);align-items:center}
+.apps{position:relative;min-height:220px;text-align:left}
+.apps.right{text-align:right}
+.apps ul{list-style:none;margin:0;padding:0;position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:10px;transition:opacity .25s}
+.apps li{font-family:var(--serif);font-size:clamp(17px,1.7vw,22px);letter-spacing:-.01em}
+.apps .tagline{position:absolute;top:-34px;left:0;right:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7c829a}
+.core{aspect-ratio:1;border-radius:50%;border:1px solid #9aa4bf;display:grid;place-items:center;position:relative;background:radial-gradient(circle,#ffffffaa,#ffffff22 70%)}
+.core:before{content:"";position:absolute;inset:12%;border:1px dashed #9aa4bf;border-radius:50%;animation:spin 60s linear infinite}
+.core-list{display:grid;gap:7px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:650;color:var(--navy)}
+.core-list small{display:block;font-size:10px;letter-spacing:.2em;color:#7c829a;margin-bottom:6px}
+.slider{max-width:760px;margin:52px auto 0}
+.slider-labels{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6f7790;margin-bottom:10px;gap:20px}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.cont-out{margin-top:24px;font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.9vw,24px);color:var(--navy);min-height:34px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:820px){.cont-stage{grid-template-columns:1fr}.apps,.apps.right{text-align:center;min-height:170px}.core{width:min(280px,80vw);margin:20px auto}}
+
+/* ---------- 04 lab ---------- */
+.lab-head{max-width:1240px;margin:0 auto 40px}
+.formula{font-family:var(--mono);font-size:clamp(15px,1.6vw,20px);color:var(--cyan);background:#ffffff08;border:1px solid #ffffff22;display:inline-block;padding:12px 18px;margin-top:6px}
+.lab{max-width:1240px;margin:auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:24px}
+.lab-visual{position:relative;min-height:480px;background:radial-gradient(circle at 50% 45%,#22336a,#121c40 65%,#0d1530);border:1px solid #ffffff1c;overflow:hidden}
+#lab-canvas{display:block;width:100%;height:100%;min-height:480px;touch-action:pan-y}
+.lab-corner{position:absolute;left:20px;top:18px;font-family:var(--mono);font-size:11px;color:#aab6d6;pointer-events:none}
+.lab-hint{position:absolute;left:20px;bottom:16px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#aab6d6aa;pointer-events:none}
+.lab-ctrl{border:1px solid #ffffff22;background:#16224a;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:22px}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid #ffffff44}
+.seg button{border:0;background:transparent;padding:12px 6px;font-size:12px;cursor:pointer;color:#dbe3f6}
+.seg button[aria-pressed=true]{background:var(--paper);color:var(--night);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{cursor:pointer;border:1px solid #ffffff44;background:transparent;border-radius:30px;padding:7px 13px;font-family:var(--mono);font-size:12px}
+.chips button[aria-pressed=true]{background:var(--cyan);color:var(--night);border-color:var(--cyan)}
+.rt{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:#dbe3f6}
+.rt output{font-family:var(--mono);color:var(--cyan)}
+.lab-note{font-size:13px;line-height:1.65;color:#c3cde6;margin:0}
+.lab-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.lab-actions button{cursor:pointer;border:1px solid #ffffff66;background:transparent;padding:11px 14px;font-size:11px;letter-spacing:.08em}
+.lab-actions button:hover{background:#ffffff14}
+.lab-actions button[aria-pressed=true]{background:var(--hl);color:var(--ink);border-color:var(--hl)}
+.lab-foot{max-width:1240px;margin:24px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:#aab6d6}
+@media(max-width:900px){.lab{grid-template-columns:1fr}.lab-visual,#lab-canvas{min-height:360px}}
+
+/* ---------- 05 ingenium / steam ---------- */
+.ing-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:start}
+.latin{font-family:var(--serif);font-size:clamp(70px,10vw,150px);font-weight:300;letter-spacing:-.05em;line-height:.9;margin:20px 0 10px}
+.latin em{color:var(--blue)}
+.senses{list-style:none;padding:0;margin:30px 0 0;counter-reset:s}
+.senses li{counter-increment:s;padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;font-family:var(--serif);font-size:clamp(19px,1.8vw,24px);font-style:italic}
+.senses li:before{content:counter(s,lower-roman);font-family:var(--mono);font-style:normal;font-size:12px;color:#8a7f66;padding-top:6px}
+.steam{display:flex;justify-content:center;gap:clamp(4px,1.2vw,14px);margin:30px 0 22px;font-family:var(--serif);font-weight:300}
+.steam span{display:grid;place-items:center;width:clamp(54px,8vw,104px);aspect-ratio:3/4;border:1px solid var(--line);font-size:clamp(40px,6vw,78px);background:#fff;transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.steam .a{width:0;border-width:0;opacity:0;overflow:hidden;background:var(--hl);font-style:italic;transform:translateY(-60px) rotate(-12deg)}
+.steam.on .a{width:clamp(54px,8vw,104px);border-width:1px;opacity:1;transform:none}
+.steam-cap{text-align:center;min-height:56px;color:#5a5446;max-width:460px;margin:0 auto 22px}
+.center{text-align:center}
+@media(max-width:900px){.ing-grid{grid-template-columns:1fr}}
+
+/* ---------- 06 chain ---------- */
+.chain{background:var(--paper);color:var(--ink)}
+.chain .chapter{color:#6f7790}
+.chain-row{max-width:1100px;margin:56px auto 0;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px}
+.node{cursor:pointer;border:1px solid #c6cbd8;background:#fff;border-radius:50%;aspect-ratio:1;display:grid;place-items:center;text-align:center;padding:16px;transition:transform .35s,box-shadow .35s,border-color .35s;font-family:var(--serif);font-size:clamp(18px,2.2vw,30px);letter-spacing:-.02em}
+.node small{display:block;font-family:var(--mono);font-size:11px;color:#7c829a;letter-spacing:0}
+.node[aria-pressed=true]{border-color:var(--blue);box-shadow:0 0 0 8px #073fbc14,0 25px 50px #1d2b5722;transform:translateY(-6px)}
+.flow{width:clamp(30px,6vw,90px);height:2px;background:linear-gradient(90deg,#c6cbd8,#c6cbd8);position:relative;overflow:hidden}
+.flow:after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--sky);animation:flow 2.4s linear infinite}
+@keyframes flow{to{left:100%}}
+.chain-detail{max-width:820px;margin:44px auto 0;border-top:1px solid #d6dae5;padding-top:30px;min-height:180px}
+.chain-detail h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.4vw,32px);margin-bottom:12px;letter-spacing:-.02em}
+.chain-detail ul{margin:0;padding-left:18px;color:#4c5366;line-height:1.9}
+.chain-abp{max-width:820px;margin:34px auto 0;display:flex;gap:16px;align-items:flex-start;background:#eef2fb;border-left:3px solid var(--blue);padding:20px 22px;font-size:15px;color:#2f3650}
+.chain-abp b{font-family:var(--mono);color:var(--blue)}
+@media(max-width:760px){.chain-row{grid-template-columns:1fr;justify-items:center}.node{width:min(220px,62vw)}.flow{width:2px;height:34px}.flow:after{width:100%;height:30%;left:0;top:-30%;animation:flowv 2.4s linear infinite}}
+@keyframes flowv{to{top:100%}}
+
+/* ---------- 07 stations ---------- */
+.stations{background:var(--cream2);color:var(--ink)}
+.stations .chapter{color:#8a7f66}
+.curve-box{max-width:1240px;margin:30px auto 0;position:relative}
+#curve{width:100%;height:auto;overflow:visible}
+#curve .path{fill:none;stroke:#8a7f66;stroke-width:1.6;stroke-dasharray:4 6}
+#curve .done{fill:none;stroke:var(--blue);stroke-width:2.4;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+#curve .st{cursor:pointer}
+#curve .st circle{fill:var(--cream);stroke:var(--ink);stroke-width:1.4;transition:all .3s}
+#curve .st text{font-family:var(--mono);font-size:13px;text-anchor:middle;fill:var(--ink);pointer-events:none}
+#curve .st.on circle{fill:var(--hl);stroke:var(--blue);stroke-width:2.5}
+#curve .st:hover circle{fill:#fff}
+#curve .st.end circle{fill:var(--blue);stroke:var(--blue)}
+#curve .st.end text{fill:#fff}
+#curve .axis{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;fill:#8a7f66}
+.station-panel{max-width:1000px;margin:20px auto 0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,70px);align-items:start;min-height:260px}
+.st-era{font-family:var(--mono);font-size:12px;color:#8a7f66}
+.st-title{font-family:var(--serif);font-weight:350;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 18px}
+.st-motto{display:inline;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.st-text{font-size:16px;line-height:1.8;color:#4b4638}
+.st-ctrl{display:flex;gap:10px;margin-top:20px;align-items:center}
+.st-ctrl button{cursor:pointer;border:1px solid var(--line);background:transparent;width:42px;height:42px;border-radius:50%}
+.st-ctrl button:hover{background:#fff}
+.sketch{display:flex;gap:16px;align-items:center;margin-top:36px;font-size:13px;color:#7d7461}
+.sketch img{width:74px;height:110px;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 20px #0002;transform:rotate(-4deg);cursor:zoom-in}
+@media(max-width:820px){.station-panel{grid-template-columns:1fr}.curve-box{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}#curve{min-width:760px}.concl-card{width:min(70%,300px)}.cutout{min-width:90px}}
+
+/* ---------- 08 conclusion ---------- */
+.concl{background:var(--night);overflow:hidden}
+.concl-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(30px,5vw,80px);align-items:center;max-width:1240px;margin:0 auto}
+.concl-card{width:min(100%,420px);margin:auto;transform:rotate(-2.5deg);filter:drop-shadow(0 30px 40px #0008)}
+.compare{max-width:1100px;margin:80px auto 0;position:relative;--x:50%;user-select:none;-webkit-user-select:none}
+.cmp-layer{display:grid;grid-template-columns:1fr;border:1px solid #ffffff22}
+.cmp-row{display:grid;grid-template-columns:44px 1fr;padding:17px 24px;border-bottom:1px solid #00000014;align-items:baseline;font-size:clamp(15px,1.5vw,19px)}
+.cmp-row:last-child{border-bottom:0}
+.cmp-row b{font-family:var(--mono);font-size:11px;opacity:.6;font-weight:500}
+.cmp-hist{background:var(--cream);color:var(--ink);font-family:var(--serif)}
+.cmp-hist .cmp-row{padding-right:calc(50% + 18px)}
+.cmp-now .cmp-row{padding-left:calc(50% + 18px)}
+.cmp-hist .cmp-head{background:#e4dcc6}
+.cmp-now{position:absolute;inset:0;background:#16224a;color:#e7edfb;clip-path:inset(0 0 0 var(--x));border-color:#ffffff33}
+.cmp-now .cmp-row{border-bottom-color:#ffffff14;grid-template-columns:1fr 44px;text-align:right;font-family:var(--mono);font-size:clamp(13px,1.25vw,16px)}
+.cmp-now .cmp-row b{order:2;text-align:right}
+.cmp-now .cmp-head{background:var(--blue)}
+.cmp-head{display:flex;justify-content:space-between;padding:14px 24px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;font-family:var(--sans)}
+.cmp-handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:var(--hl);transform:translateX(-1px);pointer-events:none}
+.cmp-handle:after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--hl);color:var(--ink);display:grid;place-items:center;font-weight:700;letter-spacing:-3px;padding-right:3px;box-shadow:0 6px 20px #0005}
+.cmp-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp-guide{text-align:center;margin-top:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#aab6d6}
+.cutouts{position:relative;max-width:1100px;margin:90px auto 0;height:clamp(380px,46vw,560px)}
+.cutout{position:absolute;cursor:grab;touch-action:none;filter:drop-shadow(0 14px 18px #0007);transition:filter .2s}
+.cutout:active{cursor:grabbing;filter:drop-shadow(0 22px 26px #000a)}
+.cutout img{width:100%;pointer-events:none}
+.cut-hint{position:absolute;left:0;bottom:-30px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#aab6d6}
+.hypo{max-width:1100px;margin:90px auto 0;border:1px solid #ffffff22;padding:clamp(24px,4vw,44px);background:#ffffff06}
+.hypo-chain{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font-family:var(--serif);font-size:clamp(22px,2.6vw,36px);margin:18px 0 18px}
+.hypo-chain .arr{color:var(--cyan);font-family:var(--sans)}
+.hypo-chain .proj{color:#aab6d6;font-style:italic}
+.badge{display:inline-block;border:1px solid var(--hl);color:var(--hl);border-radius:30px;padding:4px 12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.objectives{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.objectives div{border-top:1px solid #ffffff22;padding-top:16px;font-size:15px;color:#c9d3ec}
+.objectives b{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+@media(max-width:900px){.concl-top{grid-template-columns:1fr}.objectives{grid-template-columns:1fr}.cmp-hist .cmp-row{grid-template-columns:24px 1fr;padding:12px calc(50% + 10px) 12px 12px;font-size:14px}.cmp-now .cmp-row{grid-template-columns:1fr 24px;padding:12px 12px 12px calc(50% + 10px);font-size:12px}.cmp-head{padding:12px;font-size:9px;letter-spacing:.12em}}
+
+/* ---------- 09 question ---------- */
+.question{background:#0a1028;text-align:center;min-height:100svh;display:flex;align-items:center;justify-content:center}
+.question .chapter{justify-content:center;color:#8f9cc2}
+.q-big{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5.6vw,84px);line-height:1.1;letter-spacing:-.04em;max-width:1050px;margin:26px auto 34px}
+.q-big em{color:var(--cyan)}
+.deck{position:relative;max-width:640px;height:230px;margin:40px auto 26px}
+.qcard{position:absolute;inset:0;background:var(--cream);color:var(--ink);padding:34px 36px;display:flex;flex-direction:column;justify-content:center;text-align:left;box-shadow:0 30px 60px #0007;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.qcard .n{font-family:var(--mono);font-size:11px;color:#8a7f66;margin-bottom:12px}
+.qcard p{font-family:var(--serif);font-size:clamp(21px,2.2vw,28px);line-height:1.35;margin:0;letter-spacing:-.015em}
+.qcard.gone{transform:translate(120%,-30px) rotate(14deg);opacity:0;pointer-events:none}
+.qcard.last{background:var(--hl)}
+.q-note{max-width:640px;margin:0 auto 30px;color:#aab6d6;font-size:14px}
+
+/* ---------- 10 mark / kobo ---------- */
+.mark-sec{background:var(--cream);color:var(--ink)}
+.mark-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(30px,6vw,90px);align-items:start;max-width:1240px;margin:auto}
+.prompts{list-style:none;padding:0;margin:26px 0 0}
+.prompts li{padding:14px 0;border-top:1px solid var(--line);font-family:var(--serif);font-size:19px}
+.prompts li small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8a7f66;margin-bottom:4px}
+.kobo{background:#fff;border:1px solid var(--line);min-height:640px;position:relative;box-shadow:0 30px 70px #2b2b2b14}
+.kobo iframe{width:100%;height:860px;border:0;display:block}
+.kobo-wait{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;gap:16px}
+.kobo-wait svg{width:120px;height:auto}
+.kobo-wait p{max-width:380px;color:#6b6453;margin:0}
+.kobo-open{font-size:13px;color:#6b6453;margin:14px 0 0}.kobo-open a{color:var(--blue)}
+.kobo{border-top:4px solid var(--blue)}
+.crane path,.crane polygon{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}
+@media(max-width:900px){.mark-grid{grid-template-columns:1fr}.kobo iframe{height:900px}}
+
+/* ---------- authors ---------- */
+.people{background:var(--paper);color:var(--ink)}
+.people-grid{max-width:1240px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px)}
+.person{border-top:2px solid var(--ink);padding-top:22px}
+.person .role{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#6f7790}
+.person h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,42px);letter-spacing:-.03em;margin:8px 0 6px}
+.person .aff{font-size:14px;color:#4c5366;margin-bottom:14px}
+.person p{font-size:15px;color:#4c5366;line-height:1.75}
+.person a{color:var(--blue)}
+.event{max-width:1240px;margin:56px auto 0;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;border-top:1px solid #d6dae5;padding-top:30px}
+.event img{height:64px;width:auto}
+.event p{margin:0;font-size:14px;color:#4c5366}
+@media(max-width:820px){.people-grid{grid-template-columns:1fr}}
+
+/* ---------- references ---------- */
+.refs{background:#eceef3;color:var(--ink);padding-top:80px;padding-bottom:90px}
+.refs details{max-width:1000px;margin:24px auto 0}
+.refs summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;border:1px solid #c6cbd8;padding:18px 22px;background:#fff;font-weight:600}
+.refs summary::-webkit-details-marker{display:none}
+.refs summary:after{content:"+";font-size:22px;font-weight:300}
+.refs details[open] summary:after{content:"–"}
+.refs ol{list-style:none;padding:10px 0 0;margin:0;font-size:13.5px;line-height:1.65;color:#3c4254}
+.refs li{display:grid;grid-template-columns:44px 1fr;padding:9px 4px;border-bottom:1px solid #dde0e8}
+.refs li b{font-family:var(--mono);font-weight:500;font-size:12px;color:#6f7790}
+.refs li:target{background:var(--hl2)}
+.refs li a{color:var(--blue);word-break:break-all}
+.refs .note{max-width:1000px;margin:14px auto 0;font-size:12px;color:#6f7790}
+
+footer{background:#080d20;color:#8f9cc2;padding:30px var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+footer a{text-decoration:none}
+.fcrane{width:30px;height:auto;opacity:.55;transition:opacity .4s,transform .8s}
+.fcrane:hover{opacity:1;transform:translateY(-3px) rotate(-6deg)}
+.fcrane path,.fcrane polygon{fill:none;stroke:#cfd8f1;stroke-width:3;stroke-linejoin:round}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;background:#0d1530ee;z-index:50;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+.lightbox.on{display:flex}
+.lightbox img{max-height:92vh;width:auto;box-shadow:0 30px 80px #000}
+
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body data-lang="es">
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Inicio / Home"><img src="assets/urucon-light.svg" alt="IEEE URUCON 2026"><span>Poster #39 · EDU</span></a>
+  <div class="nav-right">
+    <a class="nav-link" href="#resumen"><span class="es">Resumen</span><span class="en">Abstract</span></a>
+    <a class="nav-link" href="#huella"><span class="es">Tu huella</span><span class="en">Your mark</span></a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<nav class="rail" aria-label="Capítulos / Chapters" id="rail"></nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero dark" id="inicio" data-rail="00|Inicio|Start">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="eyebrow caps"><span class="es">IEEE URUCON 2026 · Póster vivo</span><span class="en">IEEE URUCON 2026 · A living poster</span></div>
+    <h1>When Science<br><em>meets Art.</em></h1>
+    <p class="sub"><span class="en">From Computational Fluid Dynamics Simulation to Creative Technology</span><span class="es">De la simulación en dinámica de fluidos computacional a la tecnología creativa</span></p>
+    <div class="authors">
+      <div><b>Blas Melissari</b><small>UdelaR · Universidad de Montevideo · Bohemian Underground</small></div>
+      <div><b>Juan Pablo Franco Rubio</b><small>ILOG · IMEC · IMTE — UTEC, ITR-O</small></div>
+    </div>
+    <div class="actions">
+      <a class="btn solid" href="#resumen"><span class="es">Recorrer el póster</span><span class="en">Walk the poster</span> ↓</a>
+      <a class="btn" href="#huella"><span class="es">Dejar mi huella</span><span class="en">Leave my mark</span> ↗</a>
+    </div>
+  </div>
+  <a class="scrollnote" href="#resumen"><span class="es">Desliza</span><span class="en">Scroll</span></a>
+  <div class="hero-tag">x(t) = A·sin(a·t + φ)·e<sup>−dt</sup></div>
+</section>
+
+<!-- 01 ABSTRACT -->
+<section class="light grain" id="resumen" data-rail="01|Resumen|Abstract">
+  <div class="wrap abstract-grid">
+    <div class="reveal">
+      <div class="chapter caps">01 <i></i> <span class="es">El resumen aceptado</span><span class="en">The accepted abstract</span></div>
+      <h2 class="h2"><span class="es">Cuatro movimientos,<br><em>una continuidad.</em></span><span class="en">Four movements,<br><em>one continuity.</em></span></h2>
+      <p class="lead" style="color:#5a5446"><span class="es">Todo este póster nace de un resumen breve. Aquí lo puedes leer completo, párrafo a párrafo.</span><span class="en">This whole poster grows from one short abstract. Read it here in full, paragraph by paragraph.</span></p>
+      <div class="moves" role="tablist" aria-label="Resumen">
+        <button role="tab" aria-selected="true" data-move="0"><b>I</b><span><span class="es">Trayectoria</span><span class="en">Trajectory</span></span></button>
+        <button role="tab" aria-selected="false" data-move="1"><b>II</b><span><span class="es">Práctica creativa</span><span class="en">Creative practice</span></span></button>
+        <button role="tab" aria-selected="false" data-move="2"><b>III</b><span><span class="es">Argumento central</span><span class="en">Central argument</span></span></button>
+        <button role="tab" aria-selected="false" data-move="3"><b>IV</b><span><span class="es">Un puente</span><span class="en">A bridge</span></span></button>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="move-panel" aria-live="polite">
+        <article class="move on" role="tabpanel">
+          <p class="quote en">My professional trajectory connects <mark class="mark">engineering, computational modeling, industrial research, and artistic practice</mark>. Trained in engineering physics and computational modeling, I worked on numerical simulation and heat-transfer problems before applying scientific and computational methods to industrial challenges at Hatch/NSOLV. Later, through consulting and applied technology projects, I worked with image analysis and computer vision, including tree counting, highway image analysis, and wind-turbine failure analysis.</p>
+          <p class="quote es">Mi trayectoria profesional conecta <mark class="mark">la ingeniería, el modelado computacional, la investigación industrial y la práctica artística</mark>. Con formación en ingeniería física y modelado computacional, trabajé en simulación numérica y problemas de transferencia de calor antes de aplicar métodos científicos y computacionales a desafíos industriales en Hatch/NSOLV. Más tarde, a través de consultorías y proyectos de tecnología aplicada, trabajé con análisis de imágenes y visión por computadora: conteo de árboles, análisis de imágenes de carreteras y análisis de fallas en aerogeneradores.</p>
+          <p class="gloss"><span class="es">Una persona, muchas escalas: del fluido simulado a la imagen analizada.</span><span class="en">One person, many scales: from simulated fluid to analysed image.</span></p>
+        </article>
+        <article class="move" role="tabpanel">
+          <p class="quote en">Over time, these methods became part of an <mark class="mark">interdisciplinary creative practice</mark>. Programming, sensors, real-time processing, signal and image analysis, feedback, and computational modeling now support interactive audiovisual systems, installations, sound, visual narratives, and educational projects. Tools and approaches include Pure Data, Arduino, real-time audiovisual environments, and generative AI.</p>
+          <p class="quote es">Con el tiempo, estos métodos pasaron a formar parte de una <mark class="mark">práctica creativa interdisciplinaria</mark>. La programación, los sensores, el procesamiento en tiempo real, el análisis de señales e imágenes, la retroalimentación y el modelado computacional sostienen hoy sistemas audiovisuales interactivos, instalaciones, sonido, narrativas visuales y proyectos educativos. Entre las herramientas y enfoques están Pure Data, Arduino, entornos audiovisuales en tiempo real e IA generativa.</p>
+          <p class="gloss"><span class="es">Las mismas herramientas, ahora al servicio de la experiencia.</span><span class="en">The same tools, now in service of experience.</span></p>
+        </article>
+        <article class="move" role="tabpanel">
+          <p class="quote en">The central argument is that <mark class="mark">creative technology is not a departure from engineering, but a continuation of its methods</mark> in a different context. Modeling, computation, sensing, and systems thinking can be used not only to optimize industrial processes, but also to create experiences, support communication and learning, and explore artistic questions. The objective changes—from industrial performance toward perception, interaction, and meaning—while many underlying technical principles remain.</p>
+          <p class="quote es">El argumento central es que <mark class="mark">la tecnología creativa no es un alejamiento de la ingeniería, sino una continuación de sus métodos</mark> en otro contexto. El modelado, la computación, la sensórica y el pensamiento sistémico pueden servir no solo para optimizar procesos industriales, sino también para crear experiencias, apoyar la comunicación y el aprendizaje, y explorar preguntas artísticas. Cambia el objetivo —del rendimiento industrial a la percepción, la interacción y el sentido—, mientras muchos de los principios técnicos de fondo permanecen.</p>
+          <p class="gloss"><span class="es">Este es el corazón del póster. Más abajo lo puedes mover con tus manos.</span><span class="en">This is the heart of the poster. Further down you can move it with your own hands.</span></p>
+        </article>
+        <article class="move" role="tabpanel">
+          <p class="quote en">This trajectory suggests a productive relationship between scientific rigor and artistic experimentation. Creative technology can act as <mark class="mark">a bridge between disciplines</mark>, translating technical structures into forms that people can experience, interpret, and question.</p>
+          <p class="quote es">Esta trayectoria sugiere una relación productiva entre el rigor científico y la experimentación artística. La tecnología creativa puede actuar como <mark class="mark">un puente entre disciplinas</mark>, traduciendo estructuras técnicas en formas que las personas pueden experimentar, interpretar y cuestionar.</p>
+          <p class="gloss"><span class="es">Y cuestionar es justo donde termina el póster… y donde empiezas tú.</span><span class="en">And questioning is exactly where the poster ends… and where you begin.</span></p>
+        </article>
+      </div>
+      <div class="move-nav">
+        <button type="button" id="move-prev" aria-label="Anterior / Previous">←</button>
+        <button type="button" id="move-next" aria-label="Siguiente / Next">→</button>
+        <span class="move-count" id="move-count">1 / 4</span>
+      </div>
+      <p class="accepted"><span class="es">Resumen aceptado para presentación en póster · IEEE URUCON 2026 · Sesión de pósters, lunes 16/11/2026. La versión en español es una traducción de los autores.</span><span class="en">Abstract accepted for poster presentation · IEEE URUCON 2026 · Poster session, Monday 16 Nov 2026.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PRACTICE -->
+<section class="practice dark" id="practica" data-rail="02|Práctica|Practice">
+  <div class="wrap practice-grid">
+    <div class="reveal">
+      <div class="chapter caps" style="color:var(--cyan)">02 <i></i> <span class="es">La práctica</span><span class="en">The practice</span></div>
+      <h2 class="h2"><span class="es">Del laboratorio<br><em>al bestiario.</em></span><span class="en">From the lab<br><em>to the bestiary.</em></span></h2>
+      <p class="lead" style="color:#c9d3ec"><span class="es">Las ecuaciones que antes describían el calor y el flujo hoy dan forma a criaturas, sonidos e instalaciones. El método es el mismo; cambia la pregunta.</span><span class="en">The equations that once described heat and flow now shape creatures, sounds and installations. The method stays; the question changes.</span></p>
+      <div class="tools">
+        <span class="tool"><code>[osc~]</code> Pure Data</span>
+        <span class="tool"><code>analogRead()</code> Arduino</span>
+        <span class="tool"><span class="es">Audiovisual en tiempo real</span><span class="en">Real-time audiovisual</span></span>
+        <span class="tool"><span class="es">Visión por computadora</span><span class="en">Computer vision</span></span>
+        <span class="tool"><span class="es">IA generativa</span><span class="en">Generative AI</span></span>
+      </div>
+      <p class="credit">MVD2125 · Bestiario Futuro — Bohemian Underground. <a href="https://bohemianunder.com/" target="_blank" rel="noopener">bohemianunder.com ↗</a></p>
+    </div>
+    <div class="gallery reveal">
+      <figure><img src="assets/bestiario-1.webp" alt="Bestiario Futuro: criatura alada de papel recortado sobre un mar en acuarela" loading="lazy" width="671" height="894"><figcaption>MVD2125 · Bestiario Futuro</figcaption></figure>
+      <figure><img src="assets/bestiario-2.webp" alt="Bestiario Futuro: criatura simétrica emergiendo sobre olas en acuarela" loading="lazy" width="672" height="894"><figcaption>MVD2125 · Bestiario Futuro</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CONTINUITY -->
+<section class="cont" id="continuidad" data-rail="03|Continuidad|Continuity">
+  <div class="chapter caps reveal">03 <i></i> <span class="es">El argumento, en tus manos</span><span class="en">The argument, in your hands</span></div>
+  <h2 class="h2 reveal"><span class="es">Cambia el objetivo.<br><em>Los principios permanecen.</em></span><span class="en">The objective changes.<br><em>The principles remain.</em></span></h2>
+  <p class="lead reveal"><span class="es">Mueve el control: lo que está afuera se transforma; lo que está en el centro no se mueve.</span><span class="en">Move the slider: what lies outside transforms; what sits at the centre stays.</span></p>
+  <div class="cont-stage reveal">
+    <div class="apps" id="apps-left">
+      <span class="tagline"><span class="es">Para optimizar</span><span class="en">To optimize</span></span>
+      <ul id="ind-list">
+        <li><span class="es">Transferencia de calor</span><span class="en">Heat transfer</span></li>
+        <li><span class="es">Simulación numérica (CFD)</span><span class="en">Numerical simulation (CFD)</span></li>
+        <li><span class="es">Procesos industriales</span><span class="en">Industrial processes</span></li>
+        <li><span class="es">Fallas en aerogeneradores</span><span class="en">Wind-turbine failures</span></li>
+      </ul>
+    </div>
+    <div class="core" aria-label="Principios">
+      <div class="core-list"><small><span class="es">Permanecen</span><span class="en">Remain</span></small>
+        <span class="es">Modelado</span><span class="en">Modeling</span>
+        <span class="es">Computación</span><span class="en">Computation</span>
+        <span class="es">Sensórica</span><span class="en">Sensing</span>
+        <span class="es">Pensamiento sistémico</span><span class="en">Systems thinking</span>
+      </div>
+    </div>
+    <div class="apps right" id="apps-right">
+      <span class="tagline"><span class="es">Para crear sentido</span><span class="en">To create meaning</span></span>
+      <ul id="art-list">
+        <li><span class="es">Instalaciones interactivas</span><span class="en">Interactive installations</span></li>
+        <li><span class="es">Sonido y música</span><span class="en">Sound and music</span></li>
+        <li><span class="es">Narrativas visuales</span><span class="en">Visual narratives</span></li>
+        <li><span class="es">Aprendizaje y comunicación</span><span class="en">Learning and communication</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="slider reveal">
+    <div class="slider-labels"><span><span class="es">Rendimiento industrial</span><span class="en">Industrial performance</span></span><span><span class="es">Percepción · interacción · sentido</span><span class="en">Perception · interaction · meaning</span></span></div>
+    <input type="range" id="cont-range" min="0" max="100" value="0" aria-label="Objetivo / Objective">
+    <div class="cont-out" id="cont-out"></div>
+  </div>
+</section>
+
+<!-- 04 LAB -->
+<section class="dark" id="laboratorio" data-rail="04|Laboratorio|Lab" style="background:#101a3d">
+  <div class="lab-head reveal">
+    <div class="chapter caps" style="color:var(--cyan)">04 <i></i> <span class="es">Laboratorio: hacer visible el sonido</span><span class="en">Lab: making sound visible</span></div>
+    <h2 class="h2"><span class="es">Álgebra, trigonometría,<br><em>y de pronto, música.</em></span><span class="en">Algebra, trigonometry,<br><em>and suddenly, music.</em></span></h2>
+    <div class="formula">s(t) = Σ A<sub>n</sub> · sin(2π n f<sub>0</sub> t + φ<sub>n</sub>)</div>
+  </div>
+  <div class="lab">
+    <div class="lab-visual reveal">
+      <canvas id="lab-canvas" role="img" aria-label="Simulador: figuras de Lissajous y patrones de Chladni"></canvas>
+      <span class="lab-corner" id="lab-corner">a:b = 3:2</span>
+      <span class="lab-hint"><span class="es">Toca o arrastra sobre la figura</span><span class="en">Tap or drag on the figure</span></span>
+    </div>
+    <div class="lab-ctrl reveal">
+      <div class="seg" role="group" aria-label="Modo">
+        <button type="button" id="m-liss" aria-pressed="true">Lissajous</button>
+        <button type="button" id="m-chl" aria-pressed="false">Chladni</button>
+      </div>
+      <p class="lab-note" id="lab-note"></p>
+      <div><div class="rt"><span class="es">Razón de frecuencias</span><span class="en">Frequency ratio</span></div><div class="chips" id="ratios"></div></div>
+      <div id="liss-only">
+        <div style="margin-bottom:18px"><label class="rt" for="phase"><span><span class="es">Fase φ</span><span class="en">Phase φ</span></span><output id="phase-out">90°</output></label><input type="range" id="phase" min="0" max="180" value="90"></div>
+        <div><label class="rt" for="damp"><span><span class="es">Amortiguación (armonógrafo)</span><span class="en">Damping (harmonograph)</span></span><output id="damp-out">0.20</output></label><input type="range" id="damp" min="0" max="100" value="20"></div>
+      </div>
+      <div class="lab-actions">
+        <button type="button" id="lab-sound" aria-pressed="false">♪ <span class="es">Escuchar</span><span class="en">Listen</span></button>
+        <button type="button" id="lab-anim" aria-pressed="false">▶ <span class="es">Animar</span><span class="en">Animate</span></button>
+        <button type="button" id="lab-reset">↺ <span class="es">Reiniciar</span><span class="en">Reset</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="lab-foot"><span><span class="es">Inspirado en los armonógrafos y en las placas de Ernst Chladni: música, matemática y física en una misma forma.</span><span class="en">Inspired by harmonographs and Ernst Chladni's plates: music, mathematics and physics in one form.</span> <a class="ref" href="#r10">[10]</a><a class="ref" href="#r11">[11]</a><a class="ref" href="#r15">[15]</a></span><span><span class="es">En el aula, esto se construye con Pure Data y Arduino.</span><span class="en">In class, this is built with Pure Data and Arduino.</span> <a class="ref" href="#r4">[4]</a><a class="ref" href="#r25">[25]</a></span></div>
+</section>
+
+<!-- 05 INGENIUM -->
+<section class="light grain" id="ingenium" data-rail="05|Ingenium|Ingenium">
+  <div class="wrap ing-grid">
+    <div class="reveal">
+      <div class="chapter caps">05 <i></i> <span class="es">Una palabra antigua</span><span class="en">An ancient word</span></div>
+      <div class="latin">in<em>genium</em></div>
+      <p class="lead" style="color:#5a5446"><span class="es">«Ingeniero» viene del latín <i>ingenium</i>, que reunía tres sentidos relacionados:</span><span class="en">"Engineer" comes from the Latin <i>ingenium</i>, which gathered three related senses:</span></p>
+      <ul class="senses">
+        <li><span class="es">la disposición natural del espíritu genial</span><span class="en">the natural disposition of an ingenious spirit</span></li>
+        <li><span class="es">la capacidad de invención</span><span class="en">the capacity for invention</span></li>
+        <li><span class="es">el objeto inventado</span><span class="en">the invented object</span></li>
+      </ul>
+      <p style="margin-top:22px;color:#5a5446;font-size:15px"><span class="es">Talento, proceso y obra: desde su origen, la palabra ya unía al artista y al técnico.</span><span class="en">Talent, process and work: from its origin, the word already joined artist and technician.</span></p>
+    </div>
+    <div class="reveal center" style="padding-top:20px">
+      <div class="chapter caps" style="justify-content:center"><span class="es">De STEM a STEAM</span><span class="en">From STEM to STEAM</span></div>
+      <div class="steam" id="steam" aria-live="polite"><span>S</span><span>T</span><span>E</span><span class="a">A</span><span>M</span></div>
+      <p class="steam-cap" id="steam-cap"></p>
+      <button class="btn solid" type="button" id="steam-btn"></button>
+      <p style="margin-top:26px;font-size:13px;color:#7d7461"><span class="es">Integrar las artes no es decorar la ingeniería: es devolverle una de sus raíces.</span><span class="en">Integrating the arts is not decorating engineering: it is giving back one of its roots.</span> <a class="ref" href="#r2">[2]</a><a class="ref" href="#r9">[9]</a><a class="ref" href="#r88">[88]</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CHAIN -->
+<section class="chain" id="cadena" data-rail="06|Cadena|Chain">
+  <div class="wrap">
+    <div class="chapter caps reveal">06 <i></i> <span class="es">Un modelo para el aula</span><span class="en">A model for the classroom</span></div>
+    <h2 class="h2 reveal"><span class="es">La cadena productiva de la imaginación,<br><em>la creatividad y la innovación.</em></span><span class="en">The productive chain of imagination,<br><em>creativity and innovation.</em></span></h2>
+    <p class="lead reveal" style="color:#4c5366"><span class="es">Modelo conceptual propuesto por J. P. Franco Rubio para la formación STEM: la imaginación es materia prima; el proyecto la transforma; la comunidad la convierte en valor. Toca cada eslabón.</span><span class="en">A conceptual model proposed by J. P. Franco Rubio for STEM education: imagination is raw material; the project transforms it; the community turns it into value. Tap each link.</span></p>
+    <div class="chain-row reveal">
+      <button class="node" type="button" data-node="0" aria-pressed="true"><span><small>01</small><span class="es">Imaginación</span><span class="en">Imagination</span></span></button>
+      <div class="flow" aria-hidden="true"></div>
+      <button class="node" type="button" data-node="1" aria-pressed="false"><span><small>02</small><span class="es">Creatividad</span><span class="en">Creativity</span></span></button>
+      <div class="flow" aria-hidden="true"></div>
+      <button class="node" type="button" data-node="2" aria-pressed="false"><span><small>03</small><span class="es">Innovación</span><span class="en">Innovation</span></span></button>
+    </div>
+    <div class="chain-detail" id="chain-detail" aria-live="polite"></div>
+    <div class="chain-abp reveal"><b>ABP / PBL</b><span><span class="es">El aprendizaje basado en proyectos es el motor que mueve la cadena: convierte una idea en un objeto que funciona, que se prueba y que se explica.</span><span class="en">Project-based learning is the engine that drives the chain: it turns an idea into an object that works, gets tested and gets explained.</span> <a class="ref" href="#r26">[26]</a><a class="ref" href="#r89">[89]</a><a class="ref" href="#r30">[30]</a></span></div>
+  </div>
+</section>
+
+<!-- 07 STATIONS -->
+<section class="stations grain" id="historia" data-rail="07|Historia|History">
+  <div class="wrap">
+    <div class="chapter caps reveal">07 <i></i> <span class="es">Diez estaciones del aprender</span><span class="en">Ten stations of learning</span></div>
+    <h2 class="h2 reveal"><span class="es">Nos alejamos del taller…<br><em>y volvemos a él.</em></span><span class="en">We walked away from the workshop…<br><em>and we are walking back.</em></span></h2>
+  </div>
+  <div class="curve-box reveal">
+    <svg id="curve" viewBox="0 0 1000 330" role="group" aria-label="Línea de tiempo"></svg>
+  </div>
+  <div class="station-panel" id="station-panel" aria-live="polite">
+    <div>
+      <div class="st-era" id="st-era"></div>
+      <h3 class="st-title" id="st-title"></h3>
+      <span class="st-motto mark" id="st-motto"></span>
+      <div class="st-ctrl"><button type="button" id="st-prev" aria-label="Anterior / Previous">←</button><button type="button" id="st-next" aria-label="Siguiente / Next">→</button><span class="move-count" id="st-count"></span></div>
+    </div>
+    <div>
+      <p class="st-text" id="st-text"></p>
+      <div class="sketch"><img src="assets/boceto.webp" alt="Boceto original de Blas con los recortes de las estaciones" id="sketch" loading="lazy"><span><span class="es">La curva viene del boceto de papel de Blas. Es una lectura propuesta, no una medición.</span><span class="en">The curve comes from Blas's paper sketch. It is a proposed reading, not a measurement.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CONCLUSION -->
+<section class="concl" id="conclusion" data-rail="08|Conclusión|Conclusion">
+  <div class="concl-top">
+    <div class="reveal">
+      <div class="chapter caps" style="color:var(--cyan)">08 <i></i> <span class="es">Conclusión histórica</span><span class="en">Historical conclusion</span></div>
+      <h2 class="h2"><span class="es">Un regreso al hacer,<br><em>con herramientas nuevas.</em></span><span class="en">A return to making,<br><em>with new tools.</em></span></h2>
+      <p class="lead" style="color:#c9d3ec"><span class="es">No es volver literalmente al taller medieval: es recuperar su lógica —materiales reales, guía, desafíos crecientes, error como maestro— con sensores, código, sonido e imagen.</span><span class="en">Not a literal return to the medieval workshop, but a recovery of its logic —real materials, guidance, growing challenges, error as teacher— with sensors, code, sound and image.</span> <a class="ref" href="#r75">[75]</a><a class="ref" href="#r76">[76]</a><a class="ref" href="#r73">[73]</a></p>
+    </div>
+    <img class="concl-card reveal" src="assets/conclusion.webp" alt="Recorte con resaltador amarillo: A historical conclusion. A return to making with new tools" width="1100" height="997" loading="lazy">
+  </div>
+
+  <div class="compare reveal" id="compare">
+    <div class="cmp-layer cmp-hist" id="cmp-hist"></div>
+    <div class="cmp-layer cmp-now" id="cmp-now" aria-hidden="true"></div>
+    <div class="cmp-handle" aria-hidden="true"></div>
+    <input class="cmp-range" type="range" id="cmp-range" min="0" max="100" value="50" aria-label="Comparar taller histórico y taller contemporáneo / Compare historical and contemporary workshop">
+  </div>
+  <p class="cmp-guide">← <span class="es">Taller histórico · desliza · Taller de tecnología creativa</span><span class="en">Historical workshop · slide · Creative-technology workshop</span> →</p>
+
+  <div class="cutouts reveal" id="cutouts" aria-label="Recortes de palabras clave">
+    <span class="cut-hint"><span class="es">Las palabras del boceto: muévelas, ordénalas a tu manera</span><span class="en">The sketch's words: move them, arrange them your way</span></span>
+  </div>
+
+  <div class="hypo reveal">
+    <span class="badge"><span class="es">Hipótesis de trabajo · proyección</span><span class="en">Working hypothesis · projection</span></span>
+    <div class="hypo-chain">
+      <span><span class="es">Hacer</span><span class="en">Making</span></span><span class="arr">→</span>
+      <span><span class="es">autoeficacia y pertenencia</span><span class="en">self-efficacy and belonging</span></span><span class="arr">→</span>
+      <span class="proj"><span class="es">¿permanencia?</span><span class="en">persistence?</span></span>
+    </div>
+    <p style="color:#c9d3ec;max-width:800px;margin:0"><span class="es">La literatura vincula la autoeficacia y la pertenencia con la persistencia en ingeniería; los talleres de tecnología creativa son una vía prometedora para cultivarlas en primer año. Lo planteamos como pregunta a investigar, no como resultado.</span><span class="en">The literature links self-efficacy and belonging with persistence in engineering; creative-technology workshops are a promising way to cultivate them in the first year. We frame it as a question to investigate, not as a result.</span> <a class="ref" href="#r86">[86]</a><a class="ref" href="#r44">[44]</a><a class="ref" href="#r43">[43]</a><a class="ref" href="#r45">[45]</a><a class="ref" href="#r85">[85]</a><a class="ref" href="#r19">[19]</a></p>
+    <div class="objectives">
+      <div><b><span class="es">Objetivo creativo</span><span class="en">Creative objective</span></b><span class="es">Los objetivos creativos dan a los conceptos técnicos abstractos un propósito inmediato.</span><span class="en">Creative objectives give abstract technical concepts an immediate purpose.</span></div>
+      <div><b><span class="es">Objetivo educativo</span><span class="en">Educational objective</span></b><span class="es">Mejorar el compromiso de estudiantes de primer año, el desarrollo de habilidades interdisciplinarias y la permanencia mediante proyectos colaborativos de tecnología creativa.</span><span class="en">Improve first-year student engagement, interdisciplinary skill development, and persistence through collaborative creative technology projects.</span> <a class="ref" href="#r81">[81]</a><a class="ref" href="#r87">[87]</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 QUESTION -->
+<section class="question" id="pregunta" data-rail="09|La pregunta|The question">
+  <div>
+    <div class="chapter caps reveal">09 <i></i> <span class="es">La pregunta difícil</span><span class="en">The difficult question</span></div>
+    <h2 class="q-big reveal"><span class="es">Cuando las máquinas pueden generar respuestas, <em>¿cómo aprendemos a preguntar, juzgar y crear?</em></span><span class="en">When machines can generate answers, <em>how do we learn to ask, judge, and create?</em></span></h2>
+    <p class="q-note reveal"><span class="es">Siguiendo a Rodolfo Llinás, para quien educar es, ante todo, enseñar a hacerse preguntas, la IA no cierra la conversación: la vuelve más urgente.</span><span class="en">Following Rodolfo Llinás, for whom educating is above all teaching to ask questions, AI does not close the conversation: it makes it more urgent.</span> <a class="ref" href="#r77">[77]</a><a class="ref" href="#r78">[78]</a><a class="ref" href="#r79">[79]</a><a class="ref" href="#r57">[57]</a><a class="ref" href="#r60">[60]</a></p>
+    <div class="deck" id="deck"></div>
+    <button class="btn" type="button" id="deck-btn" style="color:#fff"></button>
+  </div>
+</section>
+
+<!-- 10 MARK -->
+<section class="mark-sec grain" id="huella" data-rail="10|Tu huella|Your mark">
+  <div class="mark-grid">
+    <div class="reveal">
+      <div class="chapter caps">10 <i></i> <span class="es">Este póster está vivo</span><span class="en">This poster is alive</span></div>
+      <h2 class="h2"><span class="es">Deja<br><em>tu huella.</em></span><span class="en">Leave<br><em>your mark.</em></span></h2>
+      <p class="lead" style="color:#5a5446"><span class="es">Unas pocas palabras bastan. Lo que compartas, si lo autorizas, aparecerá de forma anónima en el muro del póster vivo.</span><span class="en">A few words are enough. What you share, if you allow it, will appear anonymously on the living poster's wall.</span></p>
+      <ul class="prompts">
+        <li><small><span class="es">Tu pregunta difícil</span><span class="en">Your difficult question</span></small><span class="es">¿Qué pregunta te mueve?</span><span class="en">What question drives you?</span></li>
+        <li><small><span class="es">Tu cruce</span><span class="en">Your crossing</span></small><span class="es">¿Dónde se encontraron la ciencia y el arte en tu vida?</span><span class="en">Where did science and art meet in your life?</span></li>
+        <li><small><span class="es">Un buen maestro</span><span class="en">A good teacher</span></small><span class="es">¿A quién le agradeces haberte enseñado a pensar?</span><span class="en">Who do you thank for teaching you to think?</span></li>
+        <li><small><span class="es">Una palabra</span><span class="en">One word</span></small><span class="es">¿Qué te deja este póster?</span><span class="en">What does this poster leave you with?</span></li>
+      </ul>
+    </div>
+    <div class="kobo reveal" id="kobo">
+      <div class="kobo-wait" id="kobo-wait">
+        <svg class="crane" viewBox="0 0 120 90" aria-hidden="true"><polygon points="12,60 52,48 60,62"/><polygon points="52,48 66,8 74,50"/><polygon points="60,62 74,50 96,58 70,70"/><polygon points="96,58 108,24 102,60"/><polygon points="108,24 116,28 110,30"/><path d="M60 62 L70 70 L58 74 Z"/></svg>
+        <p><span class="es">El formulario se está preparando y aparecerá aquí muy pronto.</span><span class="en">The form is being prepared and will appear here very soon.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORS -->
+<section class="people" id="autores" data-rail="11|Autores|Authors">
+  <div class="wrap">
+    <div class="chapter caps reveal" style="color:#6f7790">11 <i></i> <span class="es">Quiénes</span><span class="en">Who</span></div>
+    <div class="people-grid">
+      <article class="person reveal">
+        <div class="role"><span class="es">Autor principal · presenta el póster</span><span class="en">Lead author · presenting</span></div>
+        <h3>Blas Melissari</h3>
+        <div class="aff">UdelaR · Universidad de Montevideo · Bohemian Underground</div>
+        <p><span class="es">Ingeniero físico y modelador computacional. De la simulación numérica y la transferencia de calor a la visión por computadora y, de ahí, a una práctica creativa con sonido, imagen e instalaciones.</span><span class="en">Engineering physicist and computational modeler. From numerical simulation and heat transfer to computer vision, and from there to a creative practice with sound, image and installations.</span> <a href="https://bohemianunder.com/" target="_blank" rel="noopener">bohemianunder.com ↗</a></p>
+      </article>
+      <article class="person reveal">
+        <div class="role"><span class="es">Coautor</span><span class="en">Co-author</span></div>
+        <h3>Juan Pablo Franco Rubio</h3>
+        <div class="aff">ILOG · IMEC · IMTE — UTEC, ITR-O</div>
+        <p><span class="es">Ingeniero electrónico, especialista en Administración de la Informática Educativa y magíster en Diseño y Gestión de Procesos; doctorando en Ingeniería Informática (minería de procesos). Docente de UTEC. Autor del modelo de la cadena productiva de la imaginación, la creatividad y la innovación.</span><span class="en">Electronic engineer, specialist in Educational Informatics Management and MSc in Process Design and Management; PhD candidate in Computer Engineering (process mining). Lecturer at UTEC. Author of the productive chain of imagination, creativity and innovation model.</span> <a href="https://utec.edu.uy/es/investigacion/investigadores-utec/juan-franco/" target="_blank" rel="noopener">UTEC ↗</a></p>
+      </article>
+    </div>
+    <div class="event reveal">
+      <img src="assets/urucon.svg" alt="IEEE URUCON 2026">
+      <p><span class="es">IEEE URUCON 2026 · Montevideo, Uruguay · Póster #39 · Educación</span><span class="en">IEEE URUCON 2026 · Montevideo, Uruguay · Poster #39 · Education</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="refs" id="referencias" data-rail="12|Referencias|References">
+  <div class="wrap" style="max-width:1000px">
+    <div class="chapter caps" style="color:#6f7790">12 <i></i> <span class="es">Referencias (IEEE)</span><span class="en">References (IEEE)</span></div>
+  </div>
+  <details id="refs-details">
+    <summary><span><span class="es">Ver las 89 referencias</span><span class="en">See all 89 references</span></span></summary>
+    <ol><li id="r1"><b>[1]</b><span>Y. E. Kim, B. G. Morton, J. Gregorio, D. S. Rosen, K. Edouard, and R. Vallett, "Enabling creative collaboration for all levels of learning," <em>Proc. Natl. Acad. Sci. USA</em>, vol. 116, no. 6, pp. 1878–1885, 2019, doi: <a href="https://doi.org/10.1073/pnas.1808678115" target="_blank" rel="noopener">10.1073/pnas.1808678115</a>.</span></li>
+<li id="r2"><b>[2]</b><span>C. E. Carter et al., "Defining STEAM Approaches for Higher Education," <em>Eur. J. STEM Educ.</em>, vol. 6, no. 1, Art. no. 13, 2021, doi: <a href="https://doi.org/10.20897/ejsteme/11354" target="_blank" rel="noopener">10.20897/ejsteme/11354</a>.</span></li>
+<li id="r3"><b>[3]</b><span>C. Rodier, M. Galaleldin, J. Boudreau, H. Anis, and L. Peyton, "STEAM – Arts Integration Frameworks for Transdisciplinarity," in <em>Proc. Canadian Eng. Educ. Assoc. Conf. (CEEA-ACEG)</em>, 2021, doi: <a href="https://doi.org/10.24908/pceea.vi0.14918" target="_blank" rel="noopener">10.24908/pceea.vi0.14918</a>.</span></li>
+<li id="r4"><b>[4]</b><span>O. Hödl, A. Rafetseder, P. Hu, and F. Kayali, "STEAM for non-novice STEM students with Digital Musical Instruments," in <em>Proc. 17th Int. Audio Mostly Conf. (AM '22)</em>, 2022, pp. 179–186, doi: <a href="https://doi.org/10.1145/3561212.3561235" target="_blank" rel="noopener">10.1145/3561212.3561235</a>.</span></li>
+<li id="r5"><b>[5]</b><span>C. Z. Kertész, "Incorporating Arts into Electronics Engineering: A STEAM Approach to an Embedded Systems Programming Course," <em>Educ. Sci.</em>, vol. 15, no. 9, Art. no. 1189, 2025, doi: <a href="https://doi.org/10.3390/educsci15091189" target="_blank" rel="noopener">10.3390/educsci15091189</a>.</span></li>
+<li id="r6"><b>[6]</b><span>D. T. K. Oanh and T. D. H. Dang, "Effect of STEAM Project-Based Learning on Engineering Students’ 21st Century Skills," <em>Eur. J. Educ. Res.</em>, vol. 14, no. 3, pp. 705–721, 2025, doi: <a href="https://doi.org/10.12973/eu-jer.14.3.705" target="_blank" rel="noopener">10.12973/eu-jer.14.3.705</a>.</span></li>
+<li id="r7"><b>[7]</b><span>A. Breda, A. Neves, J. Dos Santos, and Z. Lavicza, "Utilising a STEAM-based Approach to Support Calculus Students' Positive Attitudes Towards Mathematics and Enhance their Learning Outcomes," <em>Open Educ. Stud.</em>, vol. 5, no. 1, Art. no. 20220210, 2023, doi: <a href="https://doi.org/10.1515/edu-2022-0210" target="_blank" rel="noopener">10.1515/edu-2022-0210</a>.</span></li>
+<li id="r8"><b>[8]</b><span>S.-Y. Lu, C.-C. Lo, and J.-Y. Syu, "Project-based learning oriented STEAM: the case of micro–bit paper-cutting lamp," <em>Int. J. Technol. Des. Educ.</em>, vol. 32, no. 5, pp. 2553–2575, 2022, doi: <a href="https://doi.org/10.1007/s10798-021-09714-1" target="_blank" rel="noopener">10.1007/s10798-021-09714-1</a>.</span></li>
+<li id="r9"><b>[9]</b><span>A. Salonen, K. Sormunen, L. Eronen, and S. Kokko, "The roles of S-T-E-A-M disciplines in STEAM education – systematic literature review of intervention studies," <em>Int. J. Technol. Des. Educ.</em>, early access, 2026, doi: <a href="https://doi.org/10.1007/s10798-026-10124-4" target="_blank" rel="noopener">10.1007/s10798-026-10124-4</a>.</span></li>
+<li id="r10"><b>[10]</b><span>A. Zanella, C. M. Harrison, S. Lenzi, J. Cooke, P. Damsma, and S. W. Fleming, "Sonification and sound design for astronomy research, education and public engagement," <em>Nat. Astron.</em>, vol. 6, no. 11, pp. 1241–1248, 2022, doi: <a href="https://doi.org/10.1038/s41550-022-01721-z" target="_blank" rel="noopener">10.1038/s41550-022-01721-z</a>.</span></li>
+<li id="r11"><b>[11]</b><span>N. Sawe, C. Chafe, and J. Treviño, "Using Data Sonification to Overcome Science Literacy, Numeracy, and Visualization Barriers in Science Communication," <em>Front. Commun.</em>, vol. 5, Art. no. 46, 2020, doi: <a href="https://doi.org/10.3389/fcomm.2020.00046" target="_blank" rel="noopener">10.3389/fcomm.2020.00046</a>.</span></li>
+<li id="r12"><b>[12]</b><span>K. Enge et al., "Open Your Ears and Take a Look: A State-of-the-Art Report on the Integration of Sonification and Visualization," <em>Comput. Graph. Forum</em>, vol. 43, no. 3, Art. no. e15114, 2024, doi: <a href="https://doi.org/10.1111/cgf.15114" target="_blank" rel="noopener">10.1111/cgf.15114</a>.</span></li>
+<li id="r13"><b>[13]</b><span>M. Mandanici, "Fostering Computational Thinking in Undergraduated Music Conservatory Students," in <em>Proc. 14th Int. Conf. Comput. Supported Educ. (CSEDU)</em>, 2022, pp. 449–457, doi: <a href="https://doi.org/10.5220/0011134600003182" target="_blank" rel="noopener">10.5220/0011134600003182</a>.</span></li>
+<li id="r14"><b>[14]</b><span>J. Armitage and A. McPherson, "Bricolage in a hybrid digital lutherie context: A workshop study," in <em>Proc. 14th Int. Audio Mostly Conf. (AM '19)</em>, 2019, pp. 82–89, doi: <a href="https://doi.org/10.1145/3356590.3356604" target="_blank" rel="noopener">10.1145/3356590.3356604</a>.</span></li>
+<li id="r15"><b>[15]</b><span>J. C. Adams and H. Anderson, "Hearing Iterative and Recursive Behavior: Sonification Improves Student Understanding," in <em>Proc. 55th ACM Tech. Symp. Comput. Sci. Educ. (SIGCSE)</em>, 2024, pp. 4–10, doi: <a href="https://doi.org/10.1145/3626252.3630866" target="_blank" rel="noopener">10.1145/3626252.3630866</a>.</span></li>
+<li id="r16"><b>[16]</b><span>P. Gough, O. Bown, C. R. Campbell, P. Poronnik, and P. M. Ross, "Student responses to creative coding in biomedical science education," <em>Biochem. Mol. Biol. Educ.</em>, vol. 51, no. 1, pp. 44–56, 2023, doi: <a href="https://doi.org/10.1002/bmb.21692" target="_blank" rel="noopener">10.1002/bmb.21692</a>.</span></li>
+<li id="r17"><b>[17]</b><span>A. M. Chung and P. J. Guo, "Perpetual Teaching Across Temporary Places: Conditions, Motivations, and Practices of Media Artists Teaching Computing Workshops," in <em>Proc. 2024 ACM Conf. Int. Comput. Educ. Res. (ICER)</em>, 2024, pp. 374–388, doi: <a href="https://doi.org/10.1145/3632620.3671095" target="_blank" rel="noopener">10.1145/3632620.3671095</a>.</span></li>
+<li id="r18"><b>[18]</b><span>P. Blikstein, Z. Kabayadondo, A. Martin, and D. Fields, "An Assessment Instrument of Technological Literacies in Makerspaces and FabLabs," <em>J. Eng. Educ.</em>, vol. 106, no. 1, pp. 149–175, 2017, doi: <a href="https://doi.org/10.1002/jee.20156" target="_blank" rel="noopener">10.1002/jee.20156</a>.</span></li>
+<li id="r19"><b>[19]</b><span>J. Sperling, M. Mburi, M. Gray, L. Schmid, and A. Saterbak, "Effects of a first-year undergraduate engineering design course: survey study of implications for student self-efficacy and professional skills, with focus on gender/sex and race/ethnicity," <em>Int. J. STEM Educ.</em>, vol. 11, no. 1, Art. no. 8, 2024, doi: <a href="https://doi.org/10.1186/s40594-024-00467-6" target="_blank" rel="noopener">10.1186/s40594-024-00467-6</a>.</span></li>
+<li id="r20"><b>[20]</b><span>L. Martin and S. Betser, "Learning through making: The development of engineering discourse in an out-of-school maker club," <em>J. Eng. Educ.</em>, vol. 109, no. 2, pp. 194–212, 2020, doi: <a href="https://doi.org/10.1002/jee.20311" target="_blank" rel="noopener">10.1002/jee.20311</a>.</span></li>
+<li id="r21"><b>[21]</b><span>H. M. Inglis, L. Smith, and P. Schalk Els, "Getting to the Nuts and Bolts: Reclaiming Hands-on Learning in First-Year Mechanical Engineering," in <em>Proc. 11th Res. Eng. Educ. Symp. (REES)</em>, 2025, pp. 308–318, doi: <a href="https://doi.org/10.52202/086293-0030" target="_blank" rel="noopener">10.52202/086293-0030</a>.</span></li>
+<li id="r22"><b>[22]</b><span>M. Lande, C. M. Birrenkott, H. Benes, A. Larson, M. D. Bedillion, and K. H. Muci-Kuchler, "Tinkering Towards Systems Thinking: Integrating Hands-On Design Activities in First-Year Engineering Education," in <em>Proc. ASEE Annu. Conf. Expo.</em>, 2025, doi: <a href="https://doi.org/10.18260/1-2--57287" target="_blank" rel="noopener">10.18260/1-2--57287</a>.</span></li>
+<li id="r23"><b>[23]</b><span>R. Paucar-Curasma, K. O. Villalba-Condori, S. C. F. Viterbo, J. J. Nolan, U. T. R. Florentino, and R. David, "Promotion of computational thinking through problem-solving in recently admitted engineering students at a public university in the Andean region of Peru," <em>RISTI—Rev. Ibér. Sist. Tecnol. Inf.</em>, no. 48, pp. 23–40, 2022, doi: <a href="https://doi.org/10.17013/risti.48.23-40" target="_blank" rel="noopener">10.17013/risti.48.23-40</a>.</span></li>
+<li id="r24"><b>[24]</b><span>M. E. Andrews and A. Boklage, "Alleviating Barriers Facing Students on the Boundaries of STEM Makerspaces," <em>Educ. Sci.</em>, vol. 14, no. 7, Art. no. 772, 2024, doi: <a href="https://doi.org/10.3390/educsci14070772" target="_blank" rel="noopener">10.3390/educsci14070772</a>.</span></li>
+<li id="r25"><b>[25]</b><span>C. Cullen, <em>Learn with Arduino and Juce: An Introduction to Audio Synthesis and MIDI Control</em>. New York, NY, USA: Routledge, 2026, doi: <a href="https://doi.org/10.4324/9781003200222" target="_blank" rel="noopener">10.4324/9781003200222</a>.</span></li>
+<li id="r26"><b>[26]</b><span>A. Kolmos, J. E. Holgaard, and N. R. Clausen, "Progression of student self-assessed learning outcomes in systemic PBL," <em>Eur. J. Eng. Educ.</em>, vol. 46, no. 1, pp. 67–89, 2021, doi: <a href="https://doi.org/10.1080/03043797.2020.1789070" target="_blank" rel="noopener">10.1080/03043797.2020.1789070</a>.</span></li>
+<li id="r27"><b>[27]</b><span>A. C. Alves et al., "Teacher's experiences in PBL: implications for practice," <em>Eur. J. Eng. Educ.</em>, vol. 41, no. 2, pp. 123–141, 2016, doi: <a href="https://doi.org/10.1080/03043797.2015.1023782" target="_blank" rel="noopener">10.1080/03043797.2015.1023782</a>.</span></li>
+<li id="r28"><b>[28]</b><span>D. A. Chávez, V. Gamiz-Sanchez, and A. C. Vargas, "Problem-based learning: effects on academic performance and perceptions of engineering students in computer sciences," <em>J. Technol. Sci. Educ.</em>, vol. 10, no. 2, pp. 306–328, 2020, doi: <a href="https://doi.org/10.3926/jotse.969" target="_blank" rel="noopener">10.3926/jotse.969</a>.</span></li>
+<li id="r29"><b>[29]</b><span>S. Corcoran, J. Birkner, G. Brooking, and A. Matthews, "WIP: A Multi-tiered Strategy to Increase Freshman Retention," in <em>Proc. ASEE Annu. Conf. Expo.</em>, 2025, doi: <a href="https://doi.org/10.18260/1-2--57366" target="_blank" rel="noopener">10.18260/1-2--57366</a>.</span></li>
+<li id="r30"><b>[30]</b><span>J. Chen et al., "An Exploration of Sources Fostering First-Year Engineering Students' Academic Well-Being in a PBL Environment," <em>IEEE Trans. Educ.</em>, vol. 66, no. 5, pp. 421–430, 2023, doi: <a href="https://doi.org/10.1109/TE.2023.3273352" target="_blank" rel="noopener">10.1109/TE.2023.3273352</a>.</span></li>
+<li id="r31"><b>[31]</b><span>W. Huang, J. S. London, and L. A. Perry, "Project-Based Learning Promotes Students’ Perceived Relevance in an Engineering Statistics Course: A Comparison of Learning in Synchronous and Online Learning Environments," <em>J. Stat. Data Sci. Educ.</em>, vol. 31, no. 2, pp. 179–187, 2023, doi: <a href="https://doi.org/10.1080/26939169.2022.2128119" target="_blank" rel="noopener">10.1080/26939169.2022.2128119</a>.</span></li>
+<li id="r32"><b>[32]</b><span>E. Arce, A. Suárez-García, J. A. López-Vázquez, and M. I. Fernández-Ibáñez, "Design Sprint: Enhancing STEAM and engineering education through agile prototyping and testing ideas," <em>Think. Skills Creat.</em>, vol. 44, Art. no. 101039, 2022, doi: <a href="https://doi.org/10.1016/j.tsc.2022.101039" target="_blank" rel="noopener">10.1016/j.tsc.2022.101039</a>.</span></li>
+<li id="r33"><b>[33]</b><span>E. Starkey, C. A. Toh, and S. R. Miller, "Abandoning creativity: The evolution of creative ideas in engineering design course projects," <em>Des. Stud.</em>, vol. 47, pp. 47–72, 2016, doi: <a href="https://doi.org/10.1016/j.destud.2016.08.003" target="_blank" rel="noopener">10.1016/j.destud.2016.08.003</a>.</span></li>
+<li id="r34"><b>[34]</b><span>A. Valentine, I. Belski, M. Hamilton, and S. Adams, "Creativity in Electrical Engineering Degree Programs: Where Is the Content?," <em>IEEE Trans. Educ.</em>, vol. 62, no. 4, pp. 288–296, 2019, doi: <a href="https://doi.org/10.1109/TE.2019.2912834" target="_blank" rel="noopener">10.1109/TE.2019.2912834</a>.</span></li>
+<li id="r35"><b>[35]</b><span>J. Finlay and A. Papworth, "Embedding creativity in engineering degree programmes," in <em>Proc. 21st Int. Conf. Eng. Product Des. Educ. (E&amp;PDE)</em>, 2019, doi: <a href="https://doi.org/10.35199/epde2019.43" target="_blank" rel="noopener">10.35199/epde2019.43</a>.</span></li>
+<li id="r36"><b>[36]</b><span>U. R. Cukierman, "The Triple Helix of Knowledge: Synergies and Potentialities among Engineering, Art, and Education," <em>Int. J. Eng. Pedagogy</em>, vol. 15, no. 5, pp. 150–157, 2025, doi: <a href="https://doi.org/10.3991/ijep.v15i5.56983" target="_blank" rel="noopener">10.3991/ijep.v15i5.56983</a>.</span></li>
+<li id="r37"><b>[37]</b><span>C.-Y. Huang, Y.-S. Kao, H.-H. Lu, and M.-J. Wu, "Curriculum development for enhancing the imagination in the technology commercialization process," <em>Eurasia J. Math. Sci. Technol. Educ.</em>, vol. 13, no. 9, pp. 6249–6283, 2017, doi: <a href="https://doi.org/10.12973/EURASIA.2017.01062A" target="_blank" rel="noopener">10.12973/EURASIA.2017.01062A</a>.</span></li>
+<li id="r38"><b>[38]</b><span>S. Priyanto, I. Nursyahied, H. D. Nugraha, A. H. Fatgehipon, and I. Salman, "Examining the structural relationships between creativity problem solving and innovative thinking in vocational engineering education," <em>Discov. Educ.</em>, vol. 5, no. 1, Art. no. 756, 2026, doi: <a href="https://doi.org/10.1007/s44217-026-01823-0" target="_blank" rel="noopener">10.1007/s44217-026-01823-0</a>.</span></li>
+<li id="r39"><b>[39]</b><span>S. Muneer, M. Santhosh, H. Parangusan, and J. Bhadra, "A meta-analysis to explore the role of design thinking in enhancing creativity as learning outcomes in STEM education," <em>Int. J. Technol. Des. Educ.</em>, vol. 36, no. 2, pp. 919–949, 2026, doi: <a href="https://doi.org/10.1007/s10798-025-10005-2" target="_blank" rel="noopener">10.1007/s10798-025-10005-2</a>.</span></li>
+<li id="r40"><b>[40]</b><span>W.-T. Li and Y. H. G. Cheng, "A study on Engineering Students' Creativity through art-infused curriculum," <em>Eurasia J. Math. Sci. Technol. Educ.</em>, vol. 14, no. 5, pp. 2009–2024, 2018, doi: <a href="https://doi.org/10.29333/ejmste/85867" target="_blank" rel="noopener">10.29333/ejmste/85867</a>.</span></li>
+<li id="r41"><b>[41]</b><span>V. Marozzo, A. Crupi, T. Abbate, F. Cesaroni, and V. Corvello, "The impact of watching science fiction on the creativity of individuals: The role of STEM background," <em>Technovation</em>, vol. 132, Art. no. 102994, 2024, doi: <a href="https://doi.org/10.1016/j.technovation.2024.102994" target="_blank" rel="noopener">10.1016/j.technovation.2024.102994</a>.</span></li>
+<li id="r42"><b>[42]</b><span>P. Ślaski, "Applying business process reengineering as a creative pedagogical method in logistics education: a packaging case study," <em>Creat. Stud.</em>, vol. 19, no. 2, pp. 439–451, 2026, doi: <a href="https://doi.org/10.3846/cs.2026.24640" target="_blank" rel="noopener">10.3846/cs.2026.24640</a>.</span></li>
+<li id="r43"><b>[43]</b><span>T. C. Dennehy and N. Dasgupta, "Female peer mentors early in college increase women's positive academic experiences and retention in engineering," <em>Proc. Natl. Acad. Sci. USA</em>, vol. 114, no. 23, pp. 5964–5969, 2017, doi: <a href="https://doi.org/10.1073/pnas.1613117114" target="_blank" rel="noopener">10.1073/pnas.1613117114</a>.</span></li>
+<li id="r44"><b>[44]</b><span>R. W. Lent, M. J. Miller, P. E. Smith, B. A. Watford, R. H. Lim, and K. Hui, "Social cognitive predictors of academic persistence and performance in engineering: Applicability across gender and race/ethnicity," <em>J. Vocat. Behav.</em>, vol. 94, pp. 79–88, 2016, doi: <a href="https://doi.org/10.1016/j.jvb.2016.02.012" target="_blank" rel="noopener">10.1016/j.jvb.2016.02.012</a>.</span></li>
+<li id="r45"><b>[45]</b><span>M. Cannaerts, S. Craps, J. Veldman, C. V. Laar, V. Draulans, and G. Langie, "Belonging in engineering education: a systematic literature review of its impact on recruitment and retention for female students and students from ethnic minority backgrounds," <em>Eur. J. Eng. Educ.</em>, vol. 50, no. 3, pp. 512–538, 2025, doi: <a href="https://doi.org/10.1080/03043797.2024.2449212" target="_blank" rel="noopener">10.1080/03043797.2024.2449212</a>.</span></li>
+<li id="r46"><b>[46]</b><span>X.-Y. Chen, E. L. Usher, M. Roeder, A. R. Johnson, M. S. Kennedy, and N. A. Mamaril, "Mastery, models, messengers, and mixed emotions: Examining the development of engineering self-efficacy by gender," <em>J. Eng. Educ.</em>, vol. 112, no. 1, pp. 64–89, 2023, doi: <a href="https://doi.org/10.1002/jee.20494" target="_blank" rel="noopener">10.1002/jee.20494</a>.</span></li>
+<li id="r47"><b>[47]</b><span>J. R. Power, D. Tanner, V. Egan, G. M. Simmie, and J. Buckley, "Engineering self-efficacy development in undergraduates: evolving sources," <em>Eur. J. Eng. Educ.</em>, vol. 51, no. 1, pp. 1–24, 2026, doi: <a href="https://doi.org/10.1080/03043797.2025.2468350" target="_blank" rel="noopener">10.1080/03043797.2025.2468350</a>.</span></li>
+<li id="r48"><b>[48]</b><span>D. Verdín, "The power of interest: minoritized women’s interest in engineering fosters persistence beliefs beyond belongingness and engineering identity," <em>Int. J. STEM Educ.</em>, vol. 8, no. 1, Art. no. 33, 2021, doi: <a href="https://doi.org/10.1186/s40594-021-00292-1" target="_blank" rel="noopener">10.1186/s40594-021-00292-1</a>.</span></li>
+<li id="r49"><b>[49]</b><span>A. M. Minchola Vásquez et al., "Determinants of Women's Persistence in Engineering: A Structural Equation Modeling Study in Universities in Northern Peru," in <em>Proc. LACCEI Int. Multi-Conf. Eng., Educ. Technol. (LACCEI)</em>, 2026, doi: <a href="https://doi.org/10.18687/LACCEI2026.1.1.2190" target="_blank" rel="noopener">10.18687/LACCEI2026.1.1.2190</a>.</span></li>
+<li id="r50"><b>[50]</b><span>B. Heller, K. Pakala, P. R. Lowenthal, A. Hamby, and E. Jankowski, "Telling Their Stories: A Narrative Intervention to Support Belonging, Identity, and Persistence in Engineering Students," <em>Educ. Sci.</em>, vol. 16, no. 5, Art. no. 710, 2026, doi: <a href="https://doi.org/10.3390/educsci16050710" target="_blank" rel="noopener">10.3390/educsci16050710</a>.</span></li>
+<li id="r51"><b>[51]</b><span>A. M. Forster, N. Pilcher, S. Tennant, M. Murray, N. Craig, and A. Coppingf, "The fall and rise of experiential construction and engineering education: Decoupling and recoupling practice and theory," <em>High. Educ. Pedagog.</em>, vol. 2, no. 1, pp. 79–100, 2017, doi: <a href="https://doi.org/10.1080/23752696.2017.1338530" target="_blank" rel="noopener">10.1080/23752696.2017.1338530</a>.</span></li>
+<li id="r52"><b>[52]</b><span>J. H. Davenport, A. Hayes, R. Hourizi, and T. Crick, "Innovative pedagogical practices in the craft of computing," in <em>Proc. Int. Conf. Learn. Teach. Comput. Eng. (LaTiCE)</em>, 2016, pp. 115–119, doi: <a href="https://doi.org/10.1109/LaTiCE.2016.38" target="_blank" rel="noopener">10.1109/LaTiCE.2016.38</a>.</span></li>
+<li id="r53"><b>[53]</b><span>A. V. Farris and P. Sengupta, "Democratizing Children's Computation: Learning Computational Science as Aesthetic Experience," <em>Educ. Theory</em>, vol. 66, no. 1-2, pp. 279–296, 2016, doi: <a href="https://doi.org/10.1111/edth.12168" target="_blank" rel="noopener">10.1111/edth.12168</a>.</span></li>
+<li id="r54"><b>[54]</b><span>O.-L. Ng and W. K. Tsang, "Constructionist Learning in School Mathematics: Implications for Education in the Fourth Industrial Revolution," <em>ECNU Rev. Educ.</em>, vol. 6, no. 2, pp. 328–339, 2023, doi: <a href="https://doi.org/10.1177/2096531120978414" target="_blank" rel="noopener">10.1177/2096531120978414</a>.</span></li>
+<li id="r55"><b>[55]</b><span>A. Keune, "Fabric-Based Computing: (Re)examining the Materiality of Computer Science Learning Through Fiber Crafts," <em>KI—Künstl. Intell.</em>, vol. 36, no. 1, pp. 69–72, 2022, doi: <a href="https://doi.org/10.1007/s13218-021-00747-1" target="_blank" rel="noopener">10.1007/s13218-021-00747-1</a>.</span></li>
+<li id="r56"><b>[56]</b><span>J. Tian and R. Zhang, "Learners' AI dependence and critical thinking: The psychological mechanism of fatigue and the social buffering role of AI literacy," <em>Acta Psychol.</em>, vol. 260, Art. no. 105725, 2025, doi: <a href="https://doi.org/10.1016/j.actpsy.2025.105725" target="_blank" rel="noopener">10.1016/j.actpsy.2025.105725</a>.</span></li>
+<li id="r57"><b>[57]</b><span>M. Vendrell and S.-K. Johnston, "Scaffolding critical thinking with generative AI: Design principles for integrating large language models in higher education," <em>Comput. Educ.: Artif. Intell.</em>, vol. 10, Art. no. 100572, 2026, doi: <a href="https://doi.org/10.1016/j.caeai.2026.100572" target="_blank" rel="noopener">10.1016/j.caeai.2026.100572</a>.</span></li>
+<li id="r58"><b>[58]</b><span>Z. Quince, P. Chen, and A. Lidfors Lindqvist, "Engineering students’ perspectives on how generative AI is reshaping engineering skills and education: a multi-institution qualitative study," <em>Eur. J. Eng. Educ.</em>, pp. 1–20, 2026, doi: <a href="https://doi.org/10.1080/03043797.2026.2705883" target="_blank" rel="noopener">10.1080/03043797.2026.2705883</a>.</span></li>
+<li id="r59"><b>[59]</b><span>Y. Guo and D. Lee, "Leveraging ChatGPT for Enhancing Critical Thinking Skills," <em>J. Chem. Educ.</em>, vol. 100, no. 12, pp. 4876–4883, 2023, doi: <a href="https://doi.org/10.1021/acs.jchemed.3c00505" target="_blank" rel="noopener">10.1021/acs.jchemed.3c00505</a>.</span></li>
+<li id="r60"><b>[60]</b><span>C. Hou et al., "The effects of critical thinking intervention on reliance behaviors, problem-solving quality, and creativity during human-Generative AI collaborative learning," <em>Comput. Educ.</em>, vol. 247, Art. no. 105576, 2026, doi: <a href="https://doi.org/10.1016/j.compedu.2026.105576" target="_blank" rel="noopener">10.1016/j.compedu.2026.105576</a>.</span></li>
+<li id="r61"><b>[61]</b><span>H. Fakour and M. Imani, "Socratic wisdom in the age of AI: a comparative study of ChatGPT and human tutors in enhancing critical thinking skills," <em>Front. Educ.</em>, vol. 10, Art. no. 1528603, 2025, doi: <a href="https://doi.org/10.3389/feduc.2025.1528603" target="_blank" rel="noopener">10.3389/feduc.2025.1528603</a>.</span></li>
+<li id="r62"><b>[62]</b><span>V. Romo-Pérez, J. L. García-Soidán, A. S. Özdemir, and R. Leirós-Rodríguez, "ChatGPT has arrived! What do we do now? Creativity, our last refuge," <em>Rev. Investig. Educ.</em>, vol. 21, no. 3, pp. 320–334, 2023, doi: <a href="https://doi.org/10.35869/reined.v21i3.4973" target="_blank" rel="noopener">10.35869/reined.v21i3.4973</a>.</span></li>
+<li id="r63"><b>[63]</b><span>M. Stern, C. Arinze, L. Perez, S. E. Palmer, and A. Murugan, "Supervised learning through physical changes in a mechanical system," <em>Proc. Natl. Acad. Sci. USA</em>, vol. 117, no. 26, pp. 14843–14850, 2020, doi: <a href="https://doi.org/10.1073/pnas.2000807117" target="_blank" rel="noopener">10.1073/pnas.2000807117</a>.</span></li>
+<li id="r64"><b>[64]</b><span>Z. Liu, H. Fang, J. Xu, and K.-W. Wang, "Cellular Automata Inspired Multistable Origami Metamaterials for Mechanical Learning," <em>Adv. Sci.</em>, vol. 10, no. 34, Art. no. 2305146, 2023, doi: <a href="https://doi.org/10.1002/advs.202305146" target="_blank" rel="noopener">10.1002/advs.202305146</a>.</span></li>
+<li id="r65"><b>[65]</b><span>Q. Zhang and K. Zhu, "Make an Origami Circuit Board: Create Electrical Traces by Just Folding a Paperlike Material," <em>IEEE Spectr.</em>, vol. 63, no. 7, pp. 12–14, 2026, doi: <a href="https://doi.org/10.1109/MSPEC.2026.11595929" target="_blank" rel="noopener">10.1109/MSPEC.2026.11595929</a>.</span></li>
+<li id="r66"><b>[66]</b><span>P. Kulshreshtha, S. Gupta, R. Shaikh, D. Aggarwal, D. Sharma, and P. Rahi, "Foldscope Embedded Pedagogy in Stem Education: A Case Study of SDG4 Promotion in India," <em>Sustainability</em>, vol. 14, no. 20, Art. no. 13427, 2022, doi: <a href="https://doi.org/10.3390/su142013427" target="_blank" rel="noopener">10.3390/su142013427</a>.</span></li>
+<li id="r67"><b>[67]</b><span>L. M. Ridgley et al., "The language of folding: increasing spatial language and decreasing mathematics anxiety through origami," <em>Front. Educ.</em>, vol. 10, Art. no. 1613317, 2025, doi: <a href="https://doi.org/10.3389/feduc.2025.1613317" target="_blank" rel="noopener">10.3389/feduc.2025.1613317</a>.</span></li>
+<li id="r68"><b>[68]</b><span>H. Kuroda et al., "Origami Crane Training Improves Laparoscopic Surgical Skills for Gynecological Surgery," <em>Gynecol. Minim. Invasive Ther.</em>, vol. 14, no. 4, pp. 331–336, 2025, doi: <a href="https://doi.org/10.4103/gmit.gmit_60_24" target="_blank" rel="noopener">10.4103/gmit.gmit_60_24</a>.</span></li>
+<li id="r69"><b>[69]</b><span>J. Dewey, <em>Democracy and Education</em>. New York, NY, USA: Macmillan, 1916.</span></li>
+<li id="r70"><b>[70]</b><span>J. Dewey, <em>Art as Experience</em>. New York, NY, USA: Minton, Balch &amp; Co., 1934.</span></li>
+<li id="r71"><b>[71]</b><span>J. Dewey, <em>Experience and Education</em>. New York, NY, USA: Macmillan, 1938.</span></li>
+<li id="r72"><b>[72]</b><span>D. A. Kolb, <em>Experiential Learning: Experience as the Source of Learning and Development</em>. Englewood Cliffs, NJ, USA: Prentice-Hall, 1984.</span></li>
+<li id="r73"><b>[73]</b><span>S. Papert, <em>Mindstorms: Children, Computers, and Powerful Ideas</em>. New York, NY, USA: Basic Books, 1980.</span></li>
+<li id="r74"><b>[74]</b><span>S. Papert and I. Harel, "Situating constructionism," in <em>Constructionism</em>, I. Harel and S. Papert, Eds. Norwood, NJ, USA: Ablex, 1991, pp. 1–11.</span></li>
+<li id="r75"><b>[75]</b><span>A. Collins, J. S. Brown, and S. E. Newman, "Cognitive apprenticeship: Teaching the crafts of reading, writing, and mathematics," in <em>Knowing, Learning, and Instruction: Essays in Honor of Robert Glaser</em>, L. B. Resnick, Ed. Hillsdale, NJ, USA: Lawrence Erlbaum, 1989, pp. 453–494.</span></li>
+<li id="r76"><b>[76]</b><span>J. Lave and E. Wenger, <em>Situated Learning: Legitimate Peripheral Participation</em>. Cambridge, U.K.: Cambridge Univ. Press, 1991.</span></li>
+<li id="r77"><b>[77]</b><span>R. R. Llinás, <em>I of the Vortex: From Neurons to Self</em>. Cambridge, MA, USA: MIT Press, 2001.</span></li>
+<li id="r78"><b>[78]</b><span>P. Correa, <em>Rodolfo Llinás: La pregunta difícil</em>. Bogotá, Colombia, 2017.</span></li>
+<li id="r79"><b>[79]</b><span>Semana Educación, "Entrevista a Rodolfo Llinás: 'Si no hay ciencia, el país queda en manos ajenas'," <em>Semana</em>, Oct. 31, 2017. [Online]. Available: <a href="https://www.semana.com/educacion/articulo/entrevista-rodolfo-llinas-si-no-hay-ciencia-el-pais-queda-en-manos-ajenas/545580/" target="_blank" rel="noopener">https://www.semana.com/educacion/articulo/entrevista-rodolfo-llinas-si-no-hay-ciencia-el-pais-queda-en-manos-ajenas/545580/</a></span></li>
+<li id="r80"><b>[80]</b><span>M. P. Ortiz, "Fragmento del libro 'Rodolfo Llinás. La pregunta difícil', del periodista Pablo Correa," <em>El Tiempo</em>, Lecturas Dominicales, Feb. 11, 2018. [Online]. Available: <a href="https://www.eltiempo.com/lecturas-dominicales/fragmento-del-libro-rodolfo-llinas-la-pregunta-dificil-del-periodista-pablo-correa-181152" target="_blank" rel="noopener">https://www.eltiempo.com/lecturas-dominicales/fragmento-del-libro-rodolfo-llinas-la-pregunta-dificil-del-periodista-pablo-correa-181152</a></span></li>
+<li id="r81"><b>[81]</b><span>S. Freeman et al., "Active learning increases student performance in science, engineering, and mathematics," <em>Proc. Natl. Acad. Sci. USA</em>, vol. 111, no. 23, pp. 8410–8415, 2014, doi: <a href="https://doi.org/10.1073/pnas.1319030111" target="_blank" rel="noopener">10.1073/pnas.1319030111</a>.</span></li>
+<li id="r82"><b>[82]</b><span>National Academies of Sciences, Engineering, and Medicine, <em>How People Learn II: Learners, Contexts, and Cultures</em>. Washington, DC, USA: The National Academies Press, 2018, doi: <a href="https://doi.org/10.17226/24783" target="_blank" rel="noopener">10.17226/24783</a>.</span></li>
+<li id="r83"><b>[83]</b><span>C. Solomon et al., "History of Logo," <em>Proc. ACM Program. Lang.</em>, vol. 4, no. HOPL, Art. no. 79, 2020, doi: <a href="https://doi.org/10.1145/3386329" target="_blank" rel="noopener">10.1145/3386329</a>.</span></li>
+<li id="r84"><b>[84]</b><span>B. Melissari, "Map of the Renaissance Man," Bohemian Underground Artistica Collective. [Online]. Available: <a href="https://bohemianunder.com/pf" target="_blank" rel="noopener">https://bohemianunder.com/pf</a> (accessed Nov. 16, 2026).</span></li>
+<li id="r85"><b>[85]</b><span>V. Tinto, "Dropout from higher education: A theoretical synthesis of recent research," <em>Rev. Educ. Res.</em>, vol. 45, no. 1, pp. 89–125, 1975, doi: <a href="https://doi.org/10.3102/00346543045001089" target="_blank" rel="noopener">10.3102/00346543045001089</a>.</span></li>
+<li id="r86"><b>[86]</b><span>A. Bandura, <em>Self-Efficacy: The Exercise of Control</em>. New York, NY, USA: W. H. Freeman, 1997.</span></li>
+<li id="r87"><b>[87]</b><span>M. Prince, "Does active learning work? A review of the research," <em>J. Eng. Educ.</em>, vol. 93, no. 3, pp. 223–231, 2004, doi: <a href="https://doi.org/10.1002/j.2168-9830.2004.tb00809.x" target="_blank" rel="noopener">10.1002/j.2168-9830.2004.tb00809.x</a>.</span></li>
+<li id="r88"><b>[88]</b><span>J. W. Bequette and M. B. Bequette, "A place for art and design education in the STEM conversation," <em>Art Educ.</em>, vol. 65, no. 2, pp. 40–47, 2012, doi: <a href="https://doi.org/10.1080/00043125.2012.11519167" target="_blank" rel="noopener">10.1080/00043125.2012.11519167</a>.</span></li>
+<li id="r89"><b>[89]</b><span>J. W. Thomas, <em>A Review of Research on Project-Based Learning</em>. San Rafael, CA, USA: The Autodesk Foundation, 2000.</span></li></ol>
+  </details>
+  <p class="note"><span class="es">Búsqueda sistemática en Scopus (9 temas) más fuentes clásicas y complementarias. La numeración sigue el documento de trabajo de los autores.</span><span class="en">Systematic Scopus search (9 themes) plus classic and complementary sources. Numbering follows the authors' working document.</span></p>
+</section>
+</main>
+
+<footer>
+  <span>When Science Meets Art · IEEE URUCON 2026</span>
+  <svg class="fcrane" viewBox="0 0 120 90" aria-hidden="true"><polygon points="12,60 52,48 60,62"/><polygon points="52,48 66,8 74,50"/><polygon points="60,62 74,50 96,58 70,70"/><polygon points="96,58 108,24 102,60"/><polygon points="108,24 116,28 110,30"/></svg>
+  <a href="#top"><span class="es">Volver al inicio ↑</span><span class="en">Back to top ↑</span></a>
+</footer>
+
+<div class="lightbox" id="lightbox"><img alt=""></div>
+
+<script>
+/* ===== Configuración: pega aquí el enlace de KoboToolbox (Enketo) cuando esté desplegado ===== */
+const KOBO_URL = 'https://ee-eu.kobotoolbox.org/x/l7r8Yd8m';
+
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let LANG = 'es';
+const listeners = [];
+const T = o => o[LANG];
+
+/* ---------- language ---------- */
+function setLang(l){
+  LANG = l; document.body.dataset.lang = l; document.documentElement.lang = l;
+  $$('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setLang === l)));
+  try{ localStorage.setItem('wsma-lang', l) }catch(e){}
+  listeners.forEach(f => f());
+}
+$$('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+let initial = 'es';
+try{
+  const q = new URLSearchParams(location.search).get('lang');
+  const saved = localStorage.getItem('wsma-lang');
+  initial = q || saved || ((navigator.language||'es').toLowerCase().startsWith('es') ? 'es' : 'en');
+}catch(e){}
+
+/* ---------- reveal, nav, progress, rail ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target) } }), {threshold:.12});
+$$('.reveal').forEach(el => io.observe(el));
+const rail = $('#rail'), secs = $$('[data-rail]');
+function buildRail(){
+  rail.innerHTML = secs.map(s => { const [n,es,en] = s.dataset.rail.split('|'); return `<a href="#${s.id}" data-for="${s.id}"><span>${n} · ${LANG==='es'?es:en}</span><b></b></a>` }).join('');
+}
+listeners.push(buildRail);
+const so = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ $$('#rail a').forEach(a => a.classList.toggle('on', a.dataset.for === e.target.id)) } }), {rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s => so.observe(s));
+const nav = $('#nav'), prog = $('#progress');
+addEventListener('scroll', () => {
+  const h = document.documentElement; const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  prog.style.width = (p*100) + '%'; nav.classList.toggle('scrolled', h.scrollTop > 40);
+}, {passive:true});
+
+/* ---------- hero harmonograph ---------- */
+(() => {
+  const c = $('#hero-canvas'), x = c.getContext('2d'); let W, H, t = 0, P, raf, mx = 0, my = 0;
+  function seed(){ const r = [[3,2],[4,3],[5,4],[2,1],[5,3],[7,5]][Math.floor(Math.random()*6)];
+    P = {a:r[0]+ (Math.random()-.5)*.012, b:r[1]+(Math.random()-.5)*.012, p1:Math.random()*Math.PI, p2:Math.random()*Math.PI, d:.0016+Math.random()*.0012}; t = 0; }
+  function size(){ const d = Math.min(devicePixelRatio||1,2); W = c.clientWidth; H = c.clientHeight; c.width = W*d; c.height = H*d; x.setTransform(d,0,0,d,0,0); x.clearRect(0,0,W,H); seed(); }
+  function pt(tt){ const e = Math.exp(-P.d*tt); const R = Math.min(W,H)*.36, cx = W*(W>800?.68:.5), cy = H*.5;
+    return [cx + R*e*Math.sin(P.a*tt*.01 + P.p1 + mx*.4), cy + R*e*Math.sin(P.b*tt*.01 + P.p2 + my*.4)]; }
+  function step(){
+    x.fillStyle = 'rgba(13,21,48,.018)'; x.fillRect(0,0,W,H);
+    x.lineWidth = .8;
+    for(let k=0;k<6;k++){ const a = pt(t), b = pt(t+1.6); const g = Math.exp(-P.d*t);
+      x.strokeStyle = `rgba(${Math.round(108+40*g)},${Math.round(206)},254,${.12+.45*g})`; x.beginPath(); x.moveTo(a[0],a[1]); x.lineTo(b[0],b[1]); x.stroke(); t += 1.6; }
+    if(Math.exp(-P.d*t) < .06){ seed(); }
+  }
+  function frame(){ step(); raf = requestAnimationFrame(frame); }
+  addEventListener('pointermove', e => { mx = e.clientX/innerWidth-.5; my = e.clientY/innerHeight-.5 }, {passive:true});
+  addEventListener('resize', size); size();
+  if(reduced){ for(let i=0;i<300;i++) step(); }
+  else{ const vis = new IntersectionObserver(e => { if(e[0].isIntersecting){ cancelAnimationFrame(raf); raf = requestAnimationFrame(frame) } else cancelAnimationFrame(raf) }); vis.observe(c); }
+})();
+
+/* ---------- abstract moves ---------- */
+(() => {
+  const tabs = $$('.moves button'), panels = $$('.move'); let i = 0;
+  function go(n){ i = (n+4)%4; tabs.forEach((t,k) => t.setAttribute('aria-selected', String(k===i))); panels.forEach((p,k) => p.classList.toggle('on', k===i)); $('#move-count').textContent = `${i+1} / 4`; }
+  tabs.forEach(t => t.addEventListener('click', () => go(+t.dataset.move)));
+  $('#move-prev').onclick = () => go(i-1); $('#move-next').onclick = () => go(i+1);
+  $('.moves').addEventListener('keydown', e => { if(e.key==='ArrowDown'||e.key==='ArrowRight'){ go(i+1); tabs[i].focus(); e.preventDefault() } if(e.key==='ArrowUp'||e.key==='ArrowLeft'){ go(i-1); tabs[i].focus(); e.preventDefault() } });
+})();
+
+/* ---------- continuity ---------- */
+(() => {
+  const r = $('#cont-range'), sec = $('#continuidad'), L = $('#ind-list'), R = $('#art-list'), out = $('#cont-out');
+  const msgs = [
+    {es:'El mismo modelo optimiza un intercambiador de calor…', en:'The same model optimizes a heat exchanger…'},
+    {es:'…detecta una falla en un aerogenerador…', en:'…detects a failure in a wind turbine…'},
+    {es:'…traduce datos en sonido…', en:'…translates data into sound…'},
+    {es:'…y crea una experiencia que alguien puede sentir y cuestionar.', en:'…and creates an experience someone can feel and question.'}];
+  function upd(){ const v = r.value/100; sec.style.setProperty('--t', v);
+    L.style.opacity = (1 - v*.85).toFixed(2); R.style.opacity = (.15 + v*.85).toFixed(2);
+    out.textContent = T(msgs[Math.min(3, Math.floor(v*4))]); }
+  r.addEventListener('input', upd); listeners.push(upd); upd();
+})();
+
+/* ---------- sound lab ---------- */
+(() => {
+  const c = $('#lab-canvas'), x = c.getContext('2d'); let W = 600, H = 480;
+  const LISS = [[1,1],[2,1],[3,2],[4,3],[5,4],[5,3]], CHL = [[1,2],[2,3],[1,4],[3,5],[2,5],[4,5]];
+  let mode = 'liss', ratio = [3,2], mode2 = [2,3], anim = false, raf = 0, drift = 0, parts = null;
+  const phase = $('#phase'), damp = $('#damp');
+  const notes = {
+    liss:{es:'Dos oscilaciones perpendiculares. Si sus frecuencias guardan una razón simple (3:2 es una quinta justa), la figura se cierra: la consonancia se vuelve geometría.',
+          en:'Two perpendicular oscillations. When their frequencies keep a simple ratio (3:2 is a perfect fifth), the figure closes: consonance becomes geometry.'},
+    chl:{es:'Una placa que vibra: la arena huye de lo que se mueve y se queda en las líneas nodales, donde la placa está quieta. Cada modo dibuja su propio patrón.',
+         en:'A vibrating plate: sand flees what moves and settles on the nodal lines, where the plate stands still. Each mode draws its own pattern.'}};
+  function size(){ const d = Math.min(devicePixelRatio||1,2); const b = c.getBoundingClientRect(); W = b.width; H = b.height; c.width = W*d; c.height = H*d; x.setTransform(d,0,0,d,0,0); draw(); }
+  function chips(){ const list = mode==='liss'?LISS:CHL, cur = mode==='liss'?ratio:mode2;
+    $('#ratios').innerHTML = list.map(([a,b]) => `<button type="button" aria-pressed="${a===cur[0]&&b===cur[1]}" data-a="${a}" data-b="${b}">${a}:${b}</button>`).join('');
+    $$('#ratios button').forEach(bt => bt.onclick = () => { const v = [+bt.dataset.a, +bt.dataset.b]; if(mode==='liss') ratio = v; else { mode2 = v; parts = null } chips(); draw(); retune(); }); }
+  function corner(){ $('#lab-corner').textContent = mode==='liss' ? `a:b = ${ratio[0]}:${ratio[1]} · φ = ${phase.value}°` : `(n, m) = (${mode2[0]}, ${mode2[1]})`; }
+  function drawLiss(){
+    const [a,b] = ratio, ph = phase.value*Math.PI/180 + drift, d = damp.value/100*0.0009, R = Math.min(W,H)*.38, cx = W/2, cy = H/2;
+    x.clearRect(0,0,W,H);
+    x.strokeStyle = 'rgba(255,255,255,.07)'; x.lineWidth = 1; x.beginPath(); x.moveTo(cx-R-20,cy); x.lineTo(cx+R+20,cy); x.moveTo(cx,cy-R-20); x.lineTo(cx,cy+R+20); x.stroke();
+    const N = d>0 ? 9000 : 2600; x.lineWidth = 1.3; x.shadowColor = 'rgba(108,206,254,.5)'; x.shadowBlur = 10;
+    let prev = null;
+    for(let i=0;i<=N;i++){ const t = i/ (d>0?60:N/(2*Math.PI)) ; const e = Math.exp(-d*i*.9);
+      const px = cx + R*e*Math.sin(a*t + ph), py = cy + R*e*Math.sin(b*t);
+      if(prev){ x.strokeStyle = `rgba(108,206,254,${.25+.7*e})`; x.beginPath(); x.moveTo(prev[0],prev[1]); x.lineTo(px,py); x.stroke(); }
+      prev = [px,py]; }
+    x.shadowBlur = 0;
+  }
+  function field(u,v){ const [n,m] = mode2; return Math.cos(n*Math.PI*u)*Math.cos(m*Math.PI*v) - Math.cos(m*Math.PI*u)*Math.cos(n*Math.PI*v); }
+  function drawChl(step){
+    const S = Math.min(W,H)*.82, ox = (W-S)/2, oy = (H-S)/2;
+    if(!parts){ parts = new Float32Array(2*5200); for(let i=0;i<parts.length;i++) parts[i] = Math.random(); }
+    const k = step ? 3 : 0;
+    for(let s=0;s<k;s++) for(let i=0;i<parts.length;i+=2){ const a = Math.abs(field(parts[i],parts[i+1]));
+      parts[i] = Math.min(1,Math.max(0,parts[i] + (Math.random()-.5)*a*.035)); parts[i+1] = Math.min(1,Math.max(0,parts[i+1] + (Math.random()-.5)*a*.035)); }
+    x.clearRect(0,0,W,H); x.fillStyle = '#16224a'; x.fillRect(ox,oy,S,S); x.strokeStyle = 'rgba(255,255,255,.18)'; x.strokeRect(ox,oy,S,S);
+    x.fillStyle = '#f3e9c9';
+    for(let i=0;i<parts.length;i+=2) x.fillRect(ox+parts[i]*S, oy+parts[i+1]*S, 1.6, 1.6);
+  }
+  function draw(){ if(mode==='liss') drawLiss(); else drawChl(false); corner(); }
+  function tick(){ if(mode==='liss'){ drift += .006; drawLiss(); } else drawChl(true); corner(); raf = requestAnimationFrame(tick); }
+  function setAnim(on){ anim = on; cancelAnimationFrame(raf); $('#lab-anim').setAttribute('aria-pressed', String(on)); if(on) raf = requestAnimationFrame(tick); else draw(); }
+  function setMode(m){ mode = m; $('#m-liss').setAttribute('aria-pressed', String(m==='liss')); $('#m-chl').setAttribute('aria-pressed', String(m==='chl'));
+    $('#liss-only').hidden = m!=='liss'; note(); chips(); parts = null; draw(); retune(); if(m==='chl' && !anim) setAnim(true); }
+  function note(){ $('#lab-note').textContent = T(notes[mode]); }
+  /* Web Audio */
+  let ac = null, oA, oB, g, on = false;
+  function freqs(){ if(mode==='liss') return [147*ratio[0], 147*ratio[1]]; const f = 70*Math.sqrt(mode2[0]**2 + mode2[1]**2); return [f, f*1.003]; }
+  function retune(){ if(!on) return; const [fa,fb] = freqs(); oA.frequency.setTargetAtTime(fa, ac.currentTime, .05); oB.frequency.setTargetAtTime(fb, ac.currentTime, .05); }
+  function sound(state){
+    if(state){ ac = ac || new (window.AudioContext||window.webkitAudioContext)(); ac.resume();
+      g = ac.createGain(); g.gain.value = 0; g.connect(ac.destination);
+      const [fa,fb] = freqs(); oA = ac.createOscillator(); oB = ac.createOscillator(); oA.type = oB.type = 'sine'; oA.frequency.value = fa; oB.frequency.value = fb;
+      const pa = ac.createStereoPanner ? ac.createStereoPanner() : null, pb = ac.createStereoPanner ? ac.createStereoPanner() : null;
+      if(pa){ pa.pan.value = -.7; pb.pan.value = .7; oA.connect(pa).connect(g); oB.connect(pb).connect(g) } else { oA.connect(g); oB.connect(g) }
+      oA.start(); oB.start(); g.gain.setTargetAtTime(.07, ac.currentTime, .15); on = true;
+    } else if(on){ const G = g, A = oA, B = oB; G.gain.setTargetAtTime(0, ac.currentTime, .08); setTimeout(() => { try{A.stop();B.stop();G.disconnect()}catch(e){} }, 400); on = false; }
+    $('#lab-sound').setAttribute('aria-pressed', String(on));
+  }
+  $('#lab-sound').onclick = () => sound(!on);
+  $('#lab-anim').onclick = () => setAnim(!anim);
+  $('#lab-reset').onclick = () => { phase.value = 90; damp.value = 20; ratio = [3,2]; mode2 = [2,3]; drift = 0; parts = null; $('#phase-out').textContent='90°'; $('#damp-out').textContent='0.20'; chips(); draw(); retune(); };
+  $('#m-liss').onclick = () => setMode('liss'); $('#m-chl').onclick = () => setMode('chl');
+  phase.oninput = () => { $('#phase-out').textContent = phase.value+'°'; if(!anim) draw(); };
+  damp.oninput = () => { $('#damp-out').textContent = (damp.value/100).toFixed(2); if(!anim) draw(); };
+  let drag = null;
+  c.addEventListener('pointerdown', e => { drag = e.clientX; if(mode==='chl'){ parts = null; draw(); } });
+  c.addEventListener('pointermove', e => { if(drag===null || mode!=='liss') return; const dx = e.clientX-drag; drag = e.clientX; phase.value = Math.max(0,Math.min(180, +phase.value + Math.round(dx*.5))); phase.oninput(); });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev => c.addEventListener(ev, () => drag = null));
+  document.addEventListener('visibilitychange', () => { if(document.hidden){ sound(false); setAnim(false) } });
+  new IntersectionObserver(e => { if(!e[0].isIntersecting){ if(on) sound(false); if(anim) setAnim(false) } }).observe(c);
+  listeners.push(() => { note(); });
+  if('ResizeObserver' in window) new ResizeObserver(size).observe(c); else addEventListener('resize', size);
+  note(); chips(); size();
+})();
+
+/* ---------- STEAM ---------- */
+(() => {
+  const s = $('#steam'), b = $('#steam-btn'), cap = $('#steam-cap');
+  const txt = {off:{es:'Ciencia, tecnología, ingeniería y matemáticas: potentes, pero a veces sin un para qué que se sienta.', en:'Science, technology, engineering and mathematics: powerful, yet sometimes without a felt purpose.', btn:{es:'Agregar la A ↓', en:'Add the A ↓'}},
+               on:{es:'Con las artes, el proyecto gana forma, sentido y público: alguien que lo ve, lo escucha y lo cuestiona.', en:'With the arts, the project gains form, meaning and audience: someone who sees it, hears it and questions it.', btn:{es:'Quitar la A ↑', en:'Remove the A ↑'}}};
+  function upd(){ const k = s.classList.contains('on') ? 'on' : 'off'; cap.textContent = T(txt[k]); b.textContent = T(txt[k].btn); }
+  b.onclick = () => { s.classList.toggle('on'); upd(); };
+  listeners.push(upd); upd();
+})();
+
+/* ---------- chain ---------- */
+(() => {
+  const D = [
+    {t:{es:'Imaginación', en:'Imagination'}, d:{es:'La materia prima. Nace de quién eres y de lo que aprendes:', en:'The raw material. It grows from who you are and what you learn:'},
+     li:[{es:'Tipo de personalidad (lo propio)', en:'Personality type (what is one’s own)'},{es:'Valores (lo que se aprende)', en:'Values (what is learned)'},{es:'Inteligencias múltiples (H. Gardner)', en:'Multiple intelligences (H. Gardner)'},{es:'Necesidades y motivaciones (D. McClelland)', en:'Needs and motivations (D. McClelland)'}]},
+    {t:{es:'Creatividad', en:'Creativity'}, d:{es:'La imaginación puesta a trabajar en un proyecto. Se alimenta de motivaciones que el aula puede cultivar:', en:'Imagination put to work in a project. It feeds on motivations the classroom can cultivate:'},
+     li:[{es:'Logro: resolver algo que importa', en:'Achievement: solving something that matters'},{es:'Poder: sentir que uno puede transformar', en:'Power: feeling able to transform'},{es:'Reconocimiento: que otros vean y valoren la obra', en:'Recognition: others seeing and valuing the work'}]},
+    {t:{es:'Innovación', en:'Innovation'}, d:{es:'Cuando lo creado llega a otros y cambia algo. Requiere comunidades y organizaciones que aprenden (P. Senge):', en:'When what was created reaches others and changes something. It needs learning communities and organizations (P. Senge):'},
+     li:[{es:'Enfoque STEM e Industria 4.0 como estrategias de formación', en:'STEM and Industry 4.0 as educational strategies'},{es:'Desarrollo sostenible, trabajo y productividad', en:'Sustainable development, work and productivity'},{es:'Aprender a ser y a vivir en comunidad', en:'Learning to be and to live in community'}]}];
+  let i = 0; const box = $('#chain-detail'), nodes = $$('.node');
+  function upd(){ const n = D[i]; nodes.forEach((b,k) => b.setAttribute('aria-pressed', String(k===i)));
+    box.innerHTML = `<h3>${T(n.t)}</h3><p style="color:#4c5366">${T(n.d)}</p><ul>${n.li.map(l => `<li>${T(l)}</li>`).join('')}</ul>`; }
+  nodes.forEach(b => b.onclick = () => { i = +b.dataset.node; upd(); });
+  listeners.push(upd); upd();
+})();
+
+/* ---------- stations ---------- */
+(() => {
+  const S = [
+    {n:'I', era:{es:'Prehistoria',en:'Prehistory'}, t:{es:'Aprender para sobrevivir',en:'Learning to survive'}, m:{es:'Observar → experimentar → hacer → aprender',en:'Observe → experiment → make → learn'},
+     x:{es:'Antes de la escritura y de las aulas, el conocimiento práctico —herramientas, materiales, alimento— se aprendía actuando, observando, probando y con la guía de otros.',en:'Before writing and classrooms, practical knowledge —tools, materials, food— was learned by acting, observing, trying and being guided by others.'}},
+    {n:'II', era:{es:'Civilizaciones antiguas',en:'Ancient civilizations'}, t:{es:'El conocimiento se registra',en:'Knowledge becomes recorded'}, m:{es:'La experiencia se vuelve transmisible',en:'Experience becomes transmissible'},
+     x:{es:'La escritura permite preservar y comunicar más allá del encuentro personal. En Mesopotamia, los escribas se formaban copiando tablillas de arcilla y dominando el sistema paso a paso.',en:'Writing lets knowledge be preserved and shared beyond personal contact. In Mesopotamia, scribes trained by copying clay tablets and mastering the system step by step.'}},
+    {n:'III', era:{es:'Siglos XI–XV',en:'11th–15th c.'}, t:{es:'Talleres gremiales y universidades',en:'Guild workshops and universities'}, m:{es:'Aprender haciendo · aprender estudiando',en:'Learn by practice · learn by study'},
+     x:{es:'En el taller, el aprendiz crecía junto a maestros con tareas cada vez más difíciles; en la universidad (Bolonia, 1088), el estudiante razonaba con textos y debate. El quadrivium unía aritmética, geometría, música y astronomía.',en:'In the workshop, the apprentice grew beside masters through ever harder tasks; at the university (Bologna, 1088), the scholar reasoned through texts and debate. The quadrivium joined arithmetic, geometry, music and astronomy.'}},
+    {n:'IV', era:{es:'Siglos XV–XVII',en:'15th–17th c.'}, t:{es:'Renacimiento e imprenta',en:'Renaissance and print'}, m:{es:'Arte + ciencia + oficio + observación',en:'Art + science + craft + observation'},
+     x:{es:'El taller renacentista cruzaba técnica artística, materiales, mecánica, matemática y experimentación. La imprenta no creó la educación, pero hizo circular el conocimiento como nunca.',en:'The Renaissance workshop crossed artistic technique, materials, mechanics, mathematics and experiment. Print did not create education, but made knowledge circulate as never before.'}},
+    {n:'V', era:{es:'Siglos XVIII–XIX',en:'18th–19th c.'}, t:{es:'Industrialización y escuela masiva',en:'Industrialization and mass schooling'}, m:{es:'De la instrucción individual a la educación para muchos',en:'From individual instruction to education for many'},
+     x:{es:'Los Estados organizan la educación a gran escala: currículos, clases, exámenes y formación docente. La gran transformación fue la escala y la estandarización.',en:'States organize education at scale: curricula, classes, exams and teacher training. The great transformation was scale and standardization.'}},
+    {n:'VI', era:{es:'Siglos XIX–XX',en:'19th–20th c.'}, t:{es:'Expansión científica y especialización',en:'Scientific expansion and specialization'}, m:{es:'Más profundidad, más fronteras',en:'Deeper knowledge, more boundaries'},
+     x:{es:'La universidad de investigación (Berlín, 1810; Johns Hopkins, 1876) une enseñanza y producción de conocimiento. La especialización hizo posibles grandes avances… y levantó muros entre disciplinas.',en:'The research university (Berlin, 1810; Johns Hopkins, 1876) joins teaching and knowledge production. Specialization enabled great advances… and raised walls between fields.'}},
+    {n:'VII', era:{es:'Fines del XIX en adelante',en:'Late 19th c. onward'}, t:{es:'Educación progresista y experiencial',en:'Progressive and experiential education'}, m:{es:'Aprender es algo que hacemos',en:'Learning is something we do'},
+     x:{es:'La Escuela Laboratorio de Dewey (1896) y la primera Casa dei Bambini de Montessori (1907) reconectan conocimiento y experiencia: el primer gran regreso al mundo del aprendiz.',en:'Dewey’s Laboratory School (1896) and Montessori’s first Casa dei Bambini (1907) reconnect knowledge and experience: the first great return to the apprentice’s world.'}, r:[69,71,72]},
+    {n:'VIII', era:{es:'1960 – inicios del XXI',en:'1960s – early 21st c.'}, t:{es:'Computadoras, redes y competencias',en:'Computers, networks and competencies'}, m:{es:'De saber a saber actuar',en:'From knowing to knowing how to act'},
+     x:{es:'Logo (1966, Papert y colaboradores) invitaba a explorar matemática programando gráficos, música, historias y robots: muy cerca de enseñar fundamentos con Pure Data y sensores.',en:'Logo (1966, Papert and collaborators) invited children to explore mathematics by programming graphics, music, stories and robots: very close to teaching fundamentals with Pure Data and sensors.'}, r:[73,83,54]},
+    {n:'IX', era:{es:'Internet',en:'Internet'}, t:{es:'Cuando la información desborda',en:'When information overflows'}, m:{es:'Aprender a discernir: minar los datos',en:'Learn to discern: mine the data'},
+     x:{es:'La información deja de ser escasa. La competencia clave ya no es encontrarla, sino filtrarla, conectarla y descubrir patrones en ella.',en:'Information stops being scarce. The key competence is no longer finding it, but filtering, connecting and discovering patterns in it.'}},
+    {n:'X', era:{es:'2020 en adelante',en:'2020s onward'}, t:{es:'Inteligencia artificial',en:'Artificial intelligence'}, m:{es:'¿Cómo aprendemos a preguntar, juzgar y crear?',en:'How do we learn to ask, judge and create?'},
+     x:{es:'Los sistemas generativos producen texto, código, imágenes y sonidos. ¿Qué debe retener un estudiante? ¿Qué debe poder explicar sin ayuda? La imagen no es un robot que reemplaza al docente, sino una mano humana y una red construyendo juntas.',en:'Generative systems produce text, code, images and sound. What must a student retain? What should they explain without help? The image is not a robot replacing a teacher, but a human hand and a network building together.'}, r:[56,58,61]},
+    {n:'↺', end:true, era:{es:'Conclusión',en:'Conclusion'}, t:{es:'Un regreso al hacer, con herramientas nuevas',en:'A return to making, with new tools'}, m:{es:'Creativo · colaborativo · riguroso · por proyectos',en:'Creative · collaborative · rigorous · project-based'},
+     x:{es:'El aprendizaje creativo, colaborativo, riguroso y basado en proyectos es un enfoque prometedor para aumentar el compromiso significativo en la formación básica de ingeniería.',en:'Creative, collaborative, rigorous, project-based learning is a promising approach for increasing meaningful engagement in foundational engineering education.'}}];
+  const svg = $('#curve'), NS = 'http://www.w3.org/2000/svg';
+  const d = 'M30,250 C110,250 150,215 210,180 S320,95 400,75 S520,40 590,60 S690,150 760,205 S880,262 975,245';
+  svg.innerHTML = `<text class="axis" x="30" y="24"><tspan class="es">lejos del taller</tspan><tspan class="en">far from the workshop</tspan></text><text class="axis" x="30" y="318"><tspan class="es">cerca del hacer</tspan><tspan class="en">close to making</tspan></text><path class="path" d="${d}"/><path class="done" id="done" d="${d}"/>`;
+  const path = svg.querySelector('.path'), done = svg.querySelector('#done'), L = path.getTotalLength();
+  done.style.strokeDasharray = L; done.style.strokeDashoffset = L;
+  const fr = S.map((s,k) => .02 + k*(.96/(S.length-1)));
+  S.forEach((s,k) => { const p = path.getPointAtLength(L*fr[k]); const g = document.createElementNS(NS,'g');
+    g.setAttribute('class','st'+(s.end?' end':'')); g.setAttribute('tabindex','0'); g.setAttribute('role','button'); g.dataset.k = k;
+    g.innerHTML = `<circle cx="${p.x}" cy="${p.y}" r="${s.end?19:16}"/><text x="${p.x}" y="${p.y+4.5}">${s.n}</text>`;
+    g.onclick = () => go(k); g.onkeydown = e => { if(e.key==='Enter'||e.key===' '){ go(k); e.preventDefault() } };
+    svg.appendChild(g); });
+  let i = 0;
+  function go(k){ i = (k+S.length)%S.length; const s = S[i];
+    $$('#curve .st').forEach((g,j) => g.classList.toggle('on', j===i));
+    done.style.strokeDashoffset = L*(1-fr[i]);
+    $('#st-era').textContent = T(s.era); $('#st-title').textContent = T(s.t); $('#st-motto').textContent = T(s.m);
+    $('#st-text').innerHTML = T(s.x) + (s.r ? ' ' + s.r.map(n => `<a class="ref" href="#r${n}">[${n}]</a>`).join('') : '');
+    $('#st-count').textContent = `${i+1} / ${S.length}`; }
+  $('#st-prev').onclick = () => go(i-1); $('#st-next').onclick = () => go(i+1);
+  listeners.push(() => go(i)); go(0);
+})();
+
+/* ---------- compare ---------- */
+(() => {
+  const H = [{es:'Los aprendices trabajan con materiales reales',en:'Learners work with real materials'},{es:'Observan a practicantes con más experiencia',en:'They observe more experienced practitioners'},{es:'Las habilidades emergen de tareas cada vez más difíciles',en:'Skills emerge through increasingly difficult tasks'},{es:'Los errores revelan qué hay que mejorar',en:'Mistakes reveal what needs improvement'},{es:'El resultado es un artefacto físico',en:'The result is a physical artifact'},{es:'La competencia se demuestra con el trabajo',en:'Competence is demonstrated through work'}];
+  const N = [{es:'Trabajan con sensores, código, sonido e imágenes',en:'Learners work with sensors, code, sound, and images'},{es:'Aprenden con demostraciones y proyectos guiados',en:'They learn through demonstrations and guided projects'},{es:'La comprensión técnica crece con desafíos progresivos',en:'Technical understanding develops through progressive challenges'},{es:'Probar y depurar se vuelve parte del aprendizaje',en:'Testing and debugging become part of learning'},{es:'El resultado es un sistema audiovisual interactivo',en:'The result is an interactive audiovisual system'},{es:'La competencia se evalúa con proyectos que funcionan y con explicaciones',en:'Competence can be assessed through functioning projects and explanations'}];
+  const box = $('#compare'), r = $('#cmp-range');
+  function render(){
+    $('#cmp-hist').innerHTML = `<div class="cmp-head"><span>${LANG==='es'?'Un taller histórico':'A historical workshop'}</span><span>✒</span></div>` + H.map((h,k) => `<div class="cmp-row"><b>0${k+1}</b><span>${T(h)}</span></div>`).join('');
+    $('#cmp-now').innerHTML = `<div class="cmp-head"><span>✦</span><span>${LANG==='es'?'Un taller de tecnología creativa':'A creative-technology workshop'}</span></div>` + N.map((h,k) => `<div class="cmp-row"><b>0${k+1}</b><span>${T(h)}</span></div>`).join('');
+    // align row heights
+    requestAnimationFrame(() => { const a = $$('#cmp-hist .cmp-row'), b = $$('#cmp-now .cmp-row'); a.forEach((x,k) => { x.style.minHeight = b[k].style.minHeight = ''; }); a.forEach((x,k) => { const h = Math.max(x.offsetHeight, b[k].offsetHeight); x.style.minHeight = b[k].style.minHeight = h+'px'; }); });
+  }
+  r.addEventListener('input', () => box.style.setProperty('--x', r.value + '%'));
+  addEventListener('resize', render); listeners.push(render);
+})();
+
+/* ---------- cutouts (draggable) ---------- */
+(() => {
+  const box = $('#cutouts');
+  const C = [['creative',4,6,21,-6],['workshops',30,0,22,4],['skills',58,4,19,-3],['tech',80,10,15,7],['interdisciplinary',8,44,27,3],['student',42,36,24,-4],['retention',72,58,23,5]];
+  C.forEach(([n,l,t,w,rot]) => { const d = document.createElement('div'); d.className = 'cutout'; d.style.cssText = `left:${l}%;top:${t}%;width:${w}%;transform:rotate(${rot}deg)`;
+    d.innerHTML = `<img src="assets/${n}.webp" alt="${n}" loading="lazy">`; box.appendChild(d);
+    let s = null, z = 1;
+    d.addEventListener('pointerdown', e => { s = {x:e.clientX, y:e.clientY, l:d.offsetLeft, t:d.offsetTop}; d.setPointerCapture(e.pointerId); d.style.zIndex = ++window.__z || (window.__z = 5); });
+    d.addEventListener('pointermove', e => { if(!s) return; const bw = box.clientWidth, bh = box.clientHeight;
+      const L = Math.max(-20, Math.min(bw - d.offsetWidth + 20, s.l + e.clientX - s.x)), T2 = Math.max(-20, Math.min(bh - d.offsetHeight + 20, s.t + e.clientY - s.y));
+      d.style.left = (L/bw*100)+'%'; d.style.top = (T2/bh*100)+'%'; });
+    ['pointerup','pointercancel'].forEach(ev => d.addEventListener(ev, () => s = null)); });
+})();
+
+/* ---------- question deck ---------- */
+(() => {
+  const Q = [{es:'¿Qué conocimiento debe retener un estudiante?',en:'What knowledge must a student retain?'},{es:'¿Qué debería poder explicar sin ayuda?',en:'What should they be able to explain without assistance?'},{es:'¿Cómo evalúa una respuesta generada por IA?',en:'How do they evaluate an AI-generated answer?'},{es:'¿Qué es una competencia genuina cuando el software puede producir gran parte del artefacto final?',en:'What constitutes genuine competence when software can produce much of the final artifact?'},{es:'¿Y tú? ¿Qué pregunta harías?',en:'And you? What question would you ask?', last:true}];
+  const deck = $('#deck'), b = $('#deck-btn'); let i = 0;
+  function render(){ deck.innerHTML = Q.map((q,k) => `<div class="qcard${q.last?' last':''}${k<i?' gone':''}" style="z-index:${20-k};transform:${k<i?'':`translate(${(k-i)*6}px,${(k-i)*6}px) rotate(${(k-i)*1.2}deg)`}"><div class="n">${q.last?'✎':String(k+1).padStart(2,'0')+' / 04'}</div><p>${T(q)}</p></div>`).join('');
+    b.textContent = i < Q.length-1 ? (LANG==='es'?'Siguiente pregunta →':'Next question →') : (LANG==='es'?'Escribir mi pregunta ↓':'Write my question ↓'); }
+  b.onclick = () => { if(i < Q.length-1){ i++; render(); } else { $('#huella').scrollIntoView({behavior: reduced?'auto':'smooth'}); } };
+  listeners.push(render); render();
+})();
+
+/* ---------- Kobo ---------- */
+(() => {
+  if(!KOBO_URL) return;
+  const box = $('#kobo'); box.innerHTML = '';
+  box.innerHTML = `<iframe src="${KOBO_URL}" title="Tu huella · Your mark" loading="lazy"></iframe>`;
+  const a = document.createElement('p'); a.className = 'kobo-open';
+  a.innerHTML = `<a href="${KOBO_URL}" target="_blank" rel="noopener"><span class="es">Abrir el formulario en una pestaña nueva ↗</span><span class="en">Open the form in a new tab ↗</span></a><span class="es"> · Puedes cambiar a English dentro del formulario.</span><span class="en"> · Switch to English from the form's language menu.</span>`;
+  box.after(a);
+})();
+
+/* ---------- lightbox ---------- */
+(() => { const lb = $('#lightbox'), im = lb.querySelector('img');
+  $$('#sketch, .gallery img').forEach(i => { i.style.cursor = 'zoom-in'; i.onclick = () => { im.src = i.src; im.alt = i.alt; lb.classList.add('on'); }; });
+  lb.onclick = () => lb.classList.remove('on'); addEventListener('keydown', e => { if(e.key==='Escape') lb.classList.remove('on'); });
+})();
+
+setLang(initial);
+})();
+</script>
+</body>
+</html>
